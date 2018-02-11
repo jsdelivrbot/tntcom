@@ -1,0 +1,7 @@
+truck_import.truck_import_form:
+  title: 'Import truck data'
+  route_name: truck_import.truck_import_form
+  description: 'Import truck data from CSV file'
+  parent: system.admin_content
+  weight: 99
+

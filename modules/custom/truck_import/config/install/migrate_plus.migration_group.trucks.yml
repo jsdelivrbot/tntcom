@@ -1,0 +1,15 @@
+uuid: 851697a5-a965-428a-b62f-3b6545e062e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - migrate_plus
+  enforced:
+    module:
+      - truck_import
+id: trucks
+label: Trucks
+description: 'Migration group for Truck content import.'
+source_type: null
+module: truck_import
+shared_configuration: null

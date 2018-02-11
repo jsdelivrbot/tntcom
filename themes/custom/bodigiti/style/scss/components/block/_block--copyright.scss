@@ -1,0 +1,15 @@
+
+////////////////////////////////////////////////////
+// Copyright 
+////////////////////////////////////////////////////
+
+/**
+ * Footer Copyright
+ */
+#footer-copyright {
+  p {
+    @include font-size($font-base);
+    color: $color1;
+    margin: 0;
+  }
+}

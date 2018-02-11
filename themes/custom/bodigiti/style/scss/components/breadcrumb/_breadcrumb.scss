@@ -1,0 +1,20 @@
+
+#breadcrumb--shop-radios {
+  display: none;
+  @include breakpoint($sm-plus, true) {
+    display: block;
+    color: $color4;
+    padding: 12px 0 0 10px;
+    padding: .75rem 0 0 .625rem;
+    clear: left;
+    float: left;
+    a {
+      color: $color4;
+    }
+  }
+  @include breakpoint($med, true) {
+    padding: 12px 16px 0 80px;
+    padding: .75rem 1rem 0 5rem;
+  }
+}
+

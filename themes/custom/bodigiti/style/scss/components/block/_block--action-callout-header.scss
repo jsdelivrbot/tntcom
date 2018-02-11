@@ -1,0 +1,43 @@
+
+////////////////////////////////////////////////////
+// Action Callout Header
+////////////////////////////////////////////////////
+
+#action-callout-header {
+  @include font-size($font-base-plus);
+  color: $color3;
+  font-weight: bold;
+  width: 14.5rem;
+  padding-top: 8px;
+  padding-top: .5rem;
+  padding-bottom: 8px;
+  padding-bottom: .5rem;
+  margin: 0 auto 1rem auto;
+  @include breakpoint($sm-plus, true) {
+    padding-right: 8px;
+    padding-right: .5rem;
+    display: inline-block;
+    float: right;
+    position: relative;
+    clear: right;
+    margin: 0 .5rem 0 0;
+  }
+  @include breakpoint($l-plus, true) {
+    padding-right: 0;
+    margin: 0;
+  }
+  .text-phone {
+    width: 100%
+  }
+  .text {
+    display: inline-block; 
+  } 
+  .phone {
+    display: inline-block; 
+    float: right;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_truck_quantity
+    - node.type.truck
+id: node.truck.field_truck_quantity
+field_name: field_truck_quantity
+entity_type: node
+bundle: truck
+label: 'Truck Quantity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,151 @@
+
+///////////////////////////////////
+// Image + Text - Left & Right
+///////////////////////////////////
+
+/* all pargagrphs of image + text left & right */
+.image-xs-left-text-right,
+.image-sm-left-text-right,
+.image-sm-right-text-left,
+.image-med-left-text-right,
+.image-med-right-text-left {
+  h1, h2, h3, h4, p, li {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  &.paragraph {
+    margin: 4rem auto;
+  }
+}
+
+
+/**
+ * Image XS + Only text-left (others have text-left + text-right
+ */
+.image-xs-left-text-right {
+  .body {
+    @include breakpoint($xs, true) {
+      @include span(6 at 7 of 12);
+    }
+    p {
+      @include font-size-only($font-smaller);
+      @include line-height($line-height-2);
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+  .image {
+    @include breakpoint($xs, true) {
+      @include span(6 at 1 of 12);
+    }
+  }
+}
+
+/**
+ * Image Small + Text
+ */
+.image-sm-left-text-right {
+  .body {
+    @include breakpoint($sm, true) {
+      @include span(7 at 6 of 12);
+    }
+  }
+  .image {
+    @include breakpoint($sm, true) {
+      @include span(4 at 1 of 12);
+    }
+  }
+}
+
+.image-sm-right-text-left {
+  .body {
+    @include breakpoint($sm, true) {
+      @include span(8 at 1 of 12);
+    }
+  }
+  .image {
+    @include breakpoint($sm, true) {
+      @include span(4 at 9 of 12);
+    }
+  }
+}
+
+/**
+ * Image Medium + Text
+ */
+.image-med-left-text-right {
+  .body {
+    @include breakpoint($sm, true) {
+      @include span(6 at 7 of 12);
+      padding-left: 2rem;
+    }
+  }
+  .image {
+    @include breakpoint($sm, true) {
+      @include span(6 at 1 of 12);
+    }
+  }
+}
+
+.image-med-right-text-left {
+  .body {
+    @include breakpoint($sm, true) {
+      @include span(6 at 1 of 12);
+      padding-right: 2rem;
+    }
+  }
+  .image {
+    @include breakpoint($sm, true) {
+      @include span(6 at 7 of 12);
+    }
+  }
+}
+
+/** 
+ * Image Medium Float-Right + Text 
+ */
+
+.image-med-float-right-text-left {
+  .body {
+    @include breakpoint($sm, true) {
+    }
+  }
+  figure {
+    @include breakpoint($sm, true) {
+      max-width: 50%;
+      padding-left: 1.5rem;
+      padding-bottom: 1.5rem;
+      float: right;
+    }
+  }
+  /* Center image from mobile on up */
+  img {
+    margin: 0 auto;
+  }
+}
+
+/** 
+ * Image Medium Float Left + Text 
+ */
+
+.image-med-float-left-text-right {
+  .body {
+    @include breakpoint($sm, true) {
+    }
+  }
+  figure {
+    @include breakpoint($sm, true) {
+      max-width: 50%;
+      padding-right: 1.5rem;
+      padding-bottom: 1.5rem;
+      float: left;
+    }
+  }
+  /* Center image from mobile on up */
+  img {
+    margin: 0 auto;
+  }
+}
+

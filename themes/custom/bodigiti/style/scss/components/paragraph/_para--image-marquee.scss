@@ -1,0 +1,98 @@
+////////////////////////////////////////////////////////
+// Image Marquee: Image + Body
+////////////////////////////////////////////////////////
+
+.image-marquee {
+  position: relative;
+  @include breakpoint($med, true) {
+    /* Padding bottom instead of margin so margins do not collapse on each other */
+    padding-bottom: 2rem;
+  }
+}
+
+///////////////////////////
+// Image
+///////////////////////////
+
+.image-marquee--image {
+  position: relative;
+  height:auto;
+  overflow:hidden;
+  padding-bottom: 1rem;
+}
+
+.image-marquee--image img {
+  height:auto;
+  margin-left:-33%;
+  max-width:none;
+  width:166%;
+}
+@include breakpoint($l, true) {
+  .image-marquee--image {
+    height:400px;
+    position:relative;
+  }
+  .image-marquee--image img {
+    left:50%;
+    margin-left:-1000px;
+    position:absolute;
+    top:0px;
+    width:2000px;
+  }
+}
+@media (min-width:2000px){
+  .image-marquee--image {
+    height:auto;
+    min-height:400px;
+  }
+  .image-marquee--image img {
+    height:auto;
+    left:0;
+    margin-left:0;
+    width:100%;
+    position:relative;
+  }
+}
+
+///////////////////////////
+// Content/Body
+///////////////////////////
+
+.image-marquee--content {
+  width:100%;
+  h1,h2,h3,h4,h5,h6 {
+    color: $color4;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+  p {
+   color: $color3;
+   @include line-height($line-height-3);
+   margin: .5rem 0;
+  } 
+}
+.image-marquee--body.wrapper {
+  margin:0 auto;
+  max-width:850px;
+  padding:1rem;
+}
+@include breakpoint($med, true) {
+  .image-marquee--content {
+    position:absolute;
+    top:0;
+  }
+  .image-marquee--body.wrapper {
+    padding: 2rem 2rem 2rem 2rem;
+    text-align:left;
+  }
+  .image-marquee--body {
+    max-width:42%;
+  }
+}
+@include breakpoint($l, true) {
+  .image-marquee--body.wrapper {
+    max-width:900px;
+    padding: 4rem 2rem 2rem 2rem;
+  }
+}
+

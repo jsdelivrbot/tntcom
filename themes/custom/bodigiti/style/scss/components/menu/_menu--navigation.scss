@@ -1,0 +1,243 @@
+/**
+ * Stylsheet taken from Bartik theme and customized
+ * /core/themes/bartik/css/components/primary-menu.css
+ */
+
+/* --------------- Main Navigation Menu ------------ */
+/* --------------- Secondary Navigation Menu ------------ */
+/**
+ * !!!! Secondary Navigation Menu has Overrides in secondary-navigation.scss
+ *
+ /* Bodigiti modified to target #main-navigation + #secondary-navigation instead of .region-header */
+
+.main-navigation .menu,
+#secondary-navigation .menu {
+  margin: 0 5px;
+  padding: 0;
+  text-align: left; /* LTR */
+  background: $color5;
+}
+[dir="rtl"] .main-navigation .menu,
+[dir="rtl"] #secondary-navigation .menu {
+  text-align: right;
+  margin-left: 5px; /* This is required to win over specificity of [dir="rtl"] ul.menu */
+  margin-right: 5px; /* This is required to win over specificity of [dir="rtl"] ul.menu */
+}
+.main-navigation .menu-item,
+#secondary-navigation .menu-item {
+  float: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+}
+.main-navigation .menu li,
+#secondary-navigation .menu li {
+  border-top: 2px solid $color2;
+}
+.main-navigation .menu a,
+#secondary-navigation .menu a {
+  @include font-size-only($font-small);
+  @include line-height($line-height-2);
+  color: $gray7;
+  background: none;
+  float: none;
+  display: block;
+  text-decoration: none;
+  /* margin: 4px 0; */
+  padding: 1.25em 0 1.25em 10px; /* LTR */
+}
+[dir="rtl"] .main-navigation .menu a {
+  padding: 0.9em 10px 0.9em 0;
+}
+.main-navigation .menu a:hover,
+.main-navigation .menu a:focus {
+  background: #f6f6f2;
+  background: rgba(255, 255, 255, 0.95);
+}
+.main-navigation .menu a:active {
+  background: #b3b3b3;
+  background: rgba(255, 255, 255, 1);
+}
+.main-navigation .menu-item a.is-active {
+  border-bottom: none;
+}
+
+/**
+ * Media queries for menus.
+ */
+@include breakpoint($med, true) {
+  .main-navigation {
+    position: relative;
+    /* Negate top to allow large-screen positioning from clean base */
+    top: 0;
+    /* apply margin after above "top" allows start from clean base. Bottom margin/padding goverend by menu links <li><a> */
+  }
+  .main-navigation .menu,
+  #secondary-navigation .menu {
+    /* force LTR because for some reason RTL was taking over the order of links */
+    display: inline-block;
+    background: none;
+  }
+  .main-navigation .block-menu .menu,
+  #secondary-navigation .block-menu .menu {
+    font-size: 0.929em;
+    margin: 0;
+    padding: 0 15px;
+  }
+  /* Bodigiti: add styles to target .menu */
+  /* Main Navigation */
+  .main-navigation .menu,
+  body:not(:target) .main-navigation .menu,
+  .main-navigation .menu-item,
+  body:not(:target) .main-navigation .menu-item {
+    float: left; /* LTR */
+    list-style: none;
+    width: auto;
+    height: 1.25em;
+    overflow: visible;
+  }
+  /* Bodigiti: add styles to target .menu */
+  /* Secondary Navigation */
+  #secondary-navigation .menu,
+  body:not(:target) #secondary-navigation .menu,
+  #secondary-navigation .menu-item,
+  body:not(:target) #secondary-navigation .menu-item {
+    float: left; /* LTR */
+    list-style: none;
+    width: auto;
+    height: 32px;
+    height: 2rem;
+    margin: .1rem 0 .25rem .1rem;
+    overflow: visible;
+  }
+  /* must specify separately from above styles to override mobile-first width: 100% */
+  .main-navigation .menu-item,
+  #secondary-navigation .menu-item {
+    width: auto; 
+  }
+  /* Start Bodigiti: add styles to target .menu */
+  [dir="rtl"] .main-navigation .menu,
+  [dir="rtl"] body:not(:target) .main-navigation .menu,
+  /* End Bodigiti */
+  [dir="rtl"] .main-navigation .menu-item,
+  [dir="rtl"] body:not(:target) .main-navigation .menu-item {
+    float: right;
+  }
+  .main-navigation .menu .menu-item {
+    padding: 0 .6em 0 .6em;
+    &:last-child,
+    &:last-child a {
+      padding-right: 0em; 
+    }
+  }
+  #secondary-navigation .menu .menu-item {
+    &:first-child {
+      padding: 0em; 
+    }
+  }
+  /* Main Navigation + Secondary Navigation */
+  .main-navigation .menu a,
+  #secondary-navigation .menu a {
+    float: left; /* LTR */
+    padding: 0em;
+    border-top: none;
+    @include font-size($font-smaller);
+    background: none;
+    text-shadow: none;
+    border-radius: 0;
+    &:active,
+    &:hover,
+    &:focus {
+      background: none;
+    }
+    /* hide main navigation links that appear in the utility area */
+    &.utility-borrowed {
+      display: none;
+    } 
+  }
+  /* Main Navigation */
+  .main-navigation .menu a {
+    color: $color2;
+    &:active,
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $color2;
+    }
+  }
+  /* Secondary Navigation */
+  #secondary-navigation .menu a {
+    color: $color4;
+    &:active,
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $color4;
+    }
+  }
+  #secondary-navigation .menu .menu-item {
+    padding: 0 .45em 0 .45em;
+    &:first-child {
+      padding-left: .5rem;
+    }
+  }
+  #secondary-navigation .menu .menu-item:first-child a {
+    font-weight: bold;
+    font-style: italic; 
+    border-bottom: none;
+    &:hover {
+      border-bottom: 1px solid $color4;
+    }
+  }
+  [dir="rtl"] .main-navigation .menu a,
+  [dir="rtl"] #secondary-navigation .menu a {
+    float: right;
+  }
+  /* Main Navigation */
+  .main-navigation .menu-item--active-trail a,
+  /* above active-trail works on chrome, assume aditional below are for other browsers */
+  .main-navigation .menu-item--active-trail a:active,
+  .main-navigation .menu-item--active-trail a.is-active {
+    border-bottom: 1px solid $color2;
+    padding-bottom: 0;
+    margin-bottom: 1px;
+  }
+  /* Secondary Navigation */
+  #secondary-navigation .menu-item--active-trail a,
+  /* above active-trail works on chrome, assume aditional below are for other browsers */
+  #secondary-navigation .menu-item--active-trail a:active,
+  #secondary-navigation .menu-item--active-trail a.is-active {
+    border-bottom: 1px solid $color4;
+    padding-bottom: 0;
+    margin-bottom: 1px;
+  }
+
+  /* NEH - hide the hamburger when after change from mobile to wide screen */
+  body:not(:target) .main-navigation .menu-toggle,
+  body:not(:target) .main-navigation .menu-toggle:after {
+    display: none;
+  }
+  /* NEH - when change from mobile-to-wide there is extra vertical margin due to previous display: block.  This removes the vertical margin. */
+  body:not(:target) .main-navigation .menu-toggle-target-show:target ~ .menu-toggle--hide {
+    display: none;
+  }
+}
+
+@include breakpoint($l, true) {
+  .main-navigation .menu a,
+  #secondary-navigation .menu a {
+    @include font-size($font-base);
+  }
+  .main-navigation .menu .menu-item {
+    padding: 0 .9em 0 .9em;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  #secondary-navigation .menu .menu-item {
+    padding: 0 .9em 0 .9em;
+    &:first-child {
+      padding-left: 0em;
+    }
+  }
+}

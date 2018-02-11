@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Contains module asset_injector.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Asset\AttachedAssetsInterface;
+
+/**
+ * Implements hook_help().
+ */
+function asset_injector_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.asset_injector':
+      $output = '<p>' . t('Use Asset injector rules to add small snippets of code to the page output when specific criteria are met. For example, a simple rule could float a particular div to the right on node editing pages.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function asset_injector_entity_type_build(array &$entity_types) {
+  $entity_types['css_injector']->setLinkTemplate('duplicate-form', '/admin/config/development/asset-injector/css/{css_injector}/duplicate');
+  $entity_types['js_injector']->setLinkTemplate('duplicate-form', '/admin/config/development/asset-injector/js/{js_injector}/duplicate');
+}
+
+/**
+ * Implements hook_asset_injector_asset_info().
+ */
+function asset_injector_asset_injector_asset_info() {
+  return array(
+    'css_injector',
+    'js_injector',
+  );
+}
+
+/**
+ * Implements hook_css_alter().
+ */
+function asset_injector_css_alter(array &$css, AttachedAssetsInterface $assets) {
+  foreach ($css as $key => &$item) {
+    if (strpos($key, 'asset_injector') !== FALSE) {
+      $item['group'] = 999;
+    }
+  }
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function asset_injector_library_info_build() {
+  $libraries = [];
+  foreach (asset_injector_get_assets() as $asset) {
+    $libraries = array_merge($libraries, $asset->getLibrary());
+  }
+  \Drupal::moduleHandler()
+    ->alter('asset_injector_library_info_build', $libraries);
+  return $libraries;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function asset_injector_page_attachments(array &$attachments) {
+  foreach (asset_injector_get_assets() as $asset) {
+    if ($asset->isActive() && $asset->getFile()) {
+      $asset->createFile();
+      $attachments['#attached']['library'][] = $asset->getAttachment();
+    }
+  }
+}
+
+/**
+ * Get all available assets.
+ *
+ * @return array
+ *   Assets from css & js injectors.
+ */
+function asset_injector_get_assets() {
+  $entities = \Drupal::ModuleHandler()->invokeAll('asset_injector_asset_info');
+  $assets = [];
+  foreach ($entities as $entity_type) {
+    $class = Drupal::entityTypeManager()
+      ->getDefinition($entity_type)
+      ->getClass();
+    $rule_ids = Drupal::entityQuery($entity_type)->execute();
+    foreach ($class::loadMultiple($rule_ids) as $rule) {
+      $assets[] = $rule;
+    }
+  }
+  return $assets;
+}

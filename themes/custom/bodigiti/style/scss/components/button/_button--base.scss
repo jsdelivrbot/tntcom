@@ -1,0 +1,149 @@
+
+///////////////////////////
+// Buttons
+//////////////////////////
+
+%cta-button {
+  font-family: $font-family-menus;
+  color: $color2;
+  background: $color3;
+  text-decoration: none;
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+    background: lighten($color3, 15%);
+  }
+}
+%colors-secondary {
+  background: $color4;
+  &:hover {
+    text-decoration: none;
+    background: lighten($color4, 15%);
+  }
+}
+%cta-button--extra-small {
+  @include font-size-only($font-base);
+  font-weight: $font-weight-regular;
+  padding: .65rem 1.5rem .5rem 1.5rem;
+}
+%cta-button--small {
+  @include font-size-only($font-base);
+  font-weight: $font-weight-regular;
+  padding: .9rem .75rem .75rem .75rem;
+}
+%cta-button--medium {
+  @include font-size-only($font-medium-large);
+  font-weight: $font-weight-regular;
+  padding: 1.4rem 1rem 1.25rem 1rem;
+}
+%cta-button--large {
+  @include font-size-only($font-xxlarge);
+  font-weight: $font-weight-regular;
+  padding: 1.65rem 1.25rem 1.5rem 1.25rem;
+}
+%padding-right-left--sm {
+  padding-right: 32px;
+  padding-right: 2rem;
+  padding-left: 32px;
+  padding-left: 2rem;
+}
+%padding-right-left--md {
+  padding-right: 48px;
+  padding-right: 3rem;
+  padding-left: 48px;
+  padding-left: 3rem;
+}
+%padding-right-left--lg {
+  padding-right: 64px;
+  padding-right: 4rem;
+  padding-left: 64px;
+  padding-left: 4rem;
+}
+
+// Two different color combinations
+// This set of styles for when classes are not directly applied to <a>
+.cta-button {
+  &.colors-secondary {
+    @extend %colors-secondary;
+  } 
+  button,
+  a {
+    @extend %cta-button;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.full-width {
+    a,
+    button {
+        width: 100%;
+    }
+  }
+  &.extra-small button,
+  &.extra-small a {
+    @extend %cta-button--extra-small;
+  }
+  &.small button,
+  &.small a {
+    @extend %cta-button--small;
+  }
+  &.medium button,
+  &.medium a {
+    @extend %cta-button--medium;
+  }
+  &.large button,
+  &.large a {
+    @extend %cta-button--large;
+  }
+  &.padding-right-left__sm {
+    @extend %padding-right-left--sm;
+  }
+  &.padding-right-left__md {
+    @extend %padding-right-left--md;
+  }
+  &.padding-right-left__lg {
+    @extend %padding-right-left--lg;
+  }
+}
+
+// Two different color combinations
+// This set of styles for when classes are directly applied to <a> or <button>
+a.cta-button,
+button.cta-button {
+  @extend %cta-button;
+  text-decoration: none;
+  /* display table needed to allow text-align center */
+  display: table;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+  }
+  &.full-width {
+    width: 100%;
+  }
+  &.center {
+    margin: 0 auto;
+  }
+  &.extra-small {
+    @extend %cta-button--extra-small;
+  }
+  &.small {
+    @extend %cta-button--small;
+  }
+  &.medium {
+    @extend %cta-button--medium;
+  }
+  &.large {
+    @extend %cta-button--large;
+  }
+  &.padding-right-left__sm {
+    @extend %padding-right-left--sm;
+  }
+  &.padding-right-left__md {
+    @extend %padding-right-left--md;
+  }
+  &.padding-right-left__lg {
+    @extend %padding-right-left--lg;
+  }
+}
+

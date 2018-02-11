@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: max_760x570
+label: 'Max 760x570'
+effects:
+  2d04c3f9-7460-4a53-997a-6c5efc0a8492:
+    uuid: 2d04c3f9-7460-4a53-997a-6c5efc0a8492
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 760
+      height: 570

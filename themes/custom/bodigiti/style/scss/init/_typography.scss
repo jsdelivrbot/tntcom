@@ -1,0 +1,66 @@
+
+/**
+ * Font Family
+ */
+
+$font-family-menus: "Myriad Pro", myriad-pro, 'Open Sans', Arial, Helvetica, sans-serif;
+$font-family-headings: "Myriad Pro", myriad-pro, 'Open Sans', Arial, Helvetica, sans-serif;
+$font-family-main: "Myriad Pro", myriad-pro, 'Open Sans', Arial, Helvetica, sans-serif;
+
+/**
+ * Font Weight
+ */
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+/**
+ * Font Size + Line Height
+ */
+
+$font-tiny: 9.008; /* 9.008px or 0.563rem */
+$font-smaller: 14; /* 12px or 0.75rem */
+$font-small: 15; /* 15px or 0.9375rem */
+$font-base: 16; /* 16px or 1rem */
+$font-base-plus: 17; /* 17px or 1.0625rem */
+$font-standard: 19; /* 19px or 1.1875rem */
+$font-medium: 21; /* 21px or 1.3125rem */ 
+$font-medium-large: 24; /* 24px or 1.5rem */
+$font-large: 28; /* 28px or 1.75rem */
+$font-large2: 34; /* 34px or 2.125rem */
+$font-large3: 36; /* 36px or 2.25rem */
+$font-xlarge: 37.904; /* 37.904px 2.369rem */
+$font-xxlarge: 40; /* 40px or 2.5rem */
+$font-jumbo: 56; /* 56px or 3.5rem */
+
+/**
+ * Line Height
+ */
+$line-height-1: 16; /* 1.0rem */
+$line-height-2: 20; /* 1.25rem */
+$line-height-3: 24; /* 1.5rem */
+$line-height-4: 30; /* 1.875rem */
+$line-height-4a: 32; /* 2.0rem */
+$line-height-5: 36; /* 2.25rem */
+$line-height-6: 40; /* 40px or 2.5rem */
+$line-height-6a: 44; /* 44px or 2.75rem */
+$line-height-7: 48; /* 48px or 3rem */
+
+@mixin font-size-only($sizeValue: $font-size) {
+  font-size: ($sizeValue) + px;
+  font-size: ($sizeValue / 16) + rem;
+}
+
+@mixin line-height($line: $line-height) {
+  line-height: ($line) + px;
+  line-height: ($line / 16) + rem;
+}
+
+@mixin font-size($sizeValue: $font-size, $line: $sizeValue * 1.5) {
+  font-size: ($sizeValue) + px;
+  line-height: ($line) + px;
+  font-size: ($sizeValue / 16) + rem;
+  line-height: ($line / 16) + rem;
+}
+

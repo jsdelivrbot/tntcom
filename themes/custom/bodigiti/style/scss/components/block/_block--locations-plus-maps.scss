@@ -1,0 +1,17 @@
+
+#locations-plus-maps {
+  text-align: center;
+  margin-top: 1rem;
+  @include breakpoint($med, true) {
+    text-align: left;
+    margin-top: 2rem;
+  }
+  .google-map {
+    img {
+      border: 1px solid $color7; 
+    }
+    iframe {
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains install and uninstall hooks.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function asset_injector_requirements($phase) {
+  $requirements = array();
+  $uri = 'public://asset_injector';
+  $directory = file_stream_wrapper_uri_normalize($uri);
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  $requirements['asset_injector'] = array(
+    'title' => t('Asset Injector'),
+    'value' => is_writable($directory) ? t('Directory is writable') : t('Directory not writable'),
+    'description' => t('%directory should have write access.', array('%directory' => $directory)),
+    'severity' => is_writable($directory) ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+  );
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function asset_injector_uninstall() {
+  $uri = 'public://asset_injector';
+  $directory = file_stream_wrapper_uri_normalize($uri);
+  file_unmanaged_delete_recursive($directory);
+}

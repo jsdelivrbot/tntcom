@@ -1,0 +1,23 @@
+name: Truck
+description: 'Provides Truck content type and related configuration. '
+type: module
+core: 8.x
+dependencies:
+  - better_exposed_filters
+  - block
+  - colorbox
+  - field
+  - field_limiter
+  - file
+  - image
+  - infinite_blocks
+  - menu_ui
+  - metatag
+  - node
+  - path
+  - pathauto
+  - system
+  - taxonomy
+  - user
+  - views
+version: 8.x-1.2

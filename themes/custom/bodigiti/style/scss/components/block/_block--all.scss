@@ -1,0 +1,87 @@
+
+/**
+ * Blocks All
+ */
+.block__title {
+  background: $color3;
+  color: $color2;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+
+
+/**
+ * Block Image + Markup: Image First
+ */
+.block-image-markup--image-left {
+  @include clearfix();
+  .image-field {
+    text-align: center;
+    @include breakpoint($l, true) {
+      @include span(23 at 1 of 48);
+      text-align: left;
+    }
+  }
+  .markup-field {
+    padding: 1rem 1rem;
+    @include breakpoint($l, true) {
+      @include span(23 at 26 of 48);
+      padding: 0 1rem 0 0;
+    }
+  }
+}
+
+/**
+ * Block Image + Markup: Markup First 
+ */
+.block-image-markup--image-right {
+  @include clearfix();
+  .markup-field {
+    padding: 1rem 2rem;
+    @include breakpoint($l, true) {
+      @include span(23 at 1 of 48);
+      padding: 0 0 0 1rem; 
+    }
+  }
+  .image-field {
+    text-align: center;
+    @include breakpoint($l, true) {
+      @include span(23 at 26 of 48);
+      text-align: right; 
+    }
+  }
+}
+
+/**
+ * Block Full Width + Content Centered Row
+ */
+.block--full-width .content {
+  @include row;
+  @include clearfix();
+}
+
+/**
+ * Block Webform: Full Width + Content Centered Row
+ */
+.block-webform--full-width .content {
+  @include row;
+  padding: 0 1rem;
+  @include breakpoint($l, true) {
+    padding: 0 0 0 1rem;
+  }
+  @include breakpoint($xl, true) {
+    padding: 0;
+  }
+}
+
+/**
+ * Menu-Blocks
+ */
+
+/* Hide H2 output by block.tpl.php for menus */
+.block-menu h2 {
+  display: none;
+}
+

@@ -1,0 +1,31 @@
+
+p,
+li {
+  color: $color1;
+  @include font-size($font-base);
+  @include breakpoint($med-plus, true) {
+    @include font-size($font-standard);
+  }
+}
+
+pre {
+  background: $gray3;
+  padding: 2rem;
+}
+
+figure {
+  margin: 0;
+  text-align: center; 
+}
+
+figcaption,
+figure > figcaption {
+  @include font-size($font-smaller, $font-smaller);
+  color: $color1;
+  text-align: center;
+  padding: .5rem 1rem 0 1rem;
+  @include breakpoint($med-plus, true) {
+    @include font-size($font-base, $font-base);
+  }
+}
+

@@ -1,0 +1,72 @@
+
+////////////////////////////////////////////////////////////////////////////////
+// TomNehl Truck: 5 Columns: Widths specifically for TomNehl Mfr Logo sizes
+////////////////////////////////////////////////////////////////////////////////
+
+@mixin col-tnt--xs {
+}
+@mixin col-tnt--sm {
+  width: 20%;
+}
+
+@mixin col-tnt--sm-plus {
+  margin: 0; 
+  &:nth-child(1) {
+    width: 24%;
+    text-align: left;
+    img {
+      width: 70%;
+    }
+  }
+  &:nth-child(2) {
+    width: 20%;
+    img {
+      width: 60%;
+    }
+  }
+  &:nth-child(3) {
+    width: 20%;
+    img {
+      width: 40%;
+    }
+  }
+  &:nth-child(4) {
+    width: 16%;
+    img {
+      width: 60%;
+    }
+  }
+  &:nth-child(5) {
+    width: 18%;
+    text-align: right;
+    img {
+      width: 60%;
+    }
+  }
+}
+
+.column--tnt-mfr-logos {
+  text-align: center;
+  /* For narrow areas such as standard-width main-content */
+  > .col,
+  > .paragraph {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 250px;
+    width: 30%;
+    margin: 1rem 2rem;
+    @include breakpoint($sm, true) {
+      // Col Mixin
+      @include col-tnt--sm;
+    }
+    @include breakpoint($sm-plus, true) {
+      // Col Mixin
+      @include col-tnt--sm-plus;
+    }
+    @include breakpoint($med, true) {
+      max-width: 100%;
+    }
+  }
+}
+

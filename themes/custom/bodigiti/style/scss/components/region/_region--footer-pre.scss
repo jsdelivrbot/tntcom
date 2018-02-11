@@ -1,0 +1,23 @@
+
+////////////////////////////////////////////////////
+// Footer Pre
+////////////////////////////////////////////////////
+
+#footer-pre {
+  margin: 32px 16px 32px 16px;
+  margin: 2rem 1rem 2rem 1rem;
+  @include breakpoint($l, true) {
+    margin: 32px 0px 48px 0px;
+    margin: 2rem 0rem 3rem 0rem;
+  }
+  .layout-container {
+    @include row;
+  }
+  .contact-button.block {
+    margin-bottom: 4rem;
+    @include breakpoint ($med-plus, true) {
+      display: none;
+    }
+  }
+}
+

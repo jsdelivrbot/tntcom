@@ -1,0 +1,296 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.truck.field_truck_axle_front
+    - field.field.node.truck.field_truck_axle_rear
+    - field.field.node.truck.field_truck_body_type
+    - field.field.node.truck.field_truck_category
+    - field.field.node.truck.field_truck_color
+    - field.field.node.truck.field_truck_condition
+    - field.field.node.truck.field_truck_description
+    - field.field.node.truck.field_truck_drive
+    - field.field.node.truck.field_truck_engine_brake
+    - field.field.node.truck.field_truck_engine_mfr
+    - field.field.node.truck.field_truck_engine_type
+    - field.field.node.truck.field_truck_gvw
+    - field.field.node.truck.field_truck_horsepower
+    - field.field.node.truck.field_truck_image
+    - field.field.node.truck.field_truck_location
+    - field.field.node.truck.field_truck_mfr
+    - field.field.node.truck.field_truck_mileage
+    - field.field.node.truck.field_truck_price
+    - field.field.node.truck.field_truck_quantity
+    - field.field.node.truck.field_truck_ratio
+    - field.field.node.truck.field_truck_sleeper
+    - field.field.node.truck.field_truck_sleeper_size
+    - field.field.node.truck.field_truck_stock_number
+    - field.field.node.truck.field_truck_suspension
+    - field.field.node.truck.field_truck_tires
+    - field.field.node.truck.field_truck_transmission
+    - field.field.node.truck.field_truck_vin
+    - field.field.node.truck.field_truck_wheelbase
+    - field.field.node.truck.field_truck_wheels
+    - field.field.node.truck.field_truck_year
+    - image.style.max_760x570
+    - image.style.width_1000
+    - node.type.truck
+  module:
+    - colorbox
+    - user
+id: node.truck.default
+targetEntityType: node
+bundle: truck
+mode: default
+content:
+  field_truck_axle_front:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_axle_rear:
+    weight: 13
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_body_type:
+    weight: 18
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_category:
+    weight: 26
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_truck_color:
+    weight: 22
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_condition:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_truck_description:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_truck_drive:
+    weight: 11
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_engine_brake:
+    weight: 9
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_engine_mfr:
+    weight: 6
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_engine_type:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_gvw:
+    weight: 19
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_horsepower:
+    weight: 8
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_image:
+    weight: 1
+    label: hidden
+    settings:
+      colorbox_node_style: max_760x570
+      colorbox_node_style_first: max_760x570
+      colorbox_image_style: width_1000
+      colorbox_gallery: field_page
+      colorbox_gallery_custom: ''
+      colorbox_caption: none
+      colorbox_caption_custom: ''
+    third_party_settings: {  }
+    type: colorbox
+    region: content
+  field_truck_location:
+    weight: 28
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_truck_mfr:
+    weight: 27
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_truck_mileage:
+    weight: 25
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_truck_price:
+    weight: 24
+    label: inline
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_truck_quantity:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_ratio:
+    weight: 14
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_sleeper:
+    weight: 20
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_sleeper_size:
+    weight: 21
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_stock_number:
+    weight: 4
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_suspension:
+    weight: 17
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_tires:
+    weight: 15
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_transmission:
+    weight: 10
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_vin:
+    weight: 5
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_wheelbase:
+    weight: 16
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_wheels:
+    weight: 23
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_truck_year:
+    weight: 29
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  links: true

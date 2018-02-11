@@ -1,0 +1,64 @@
+
+/**
+ * Sidebars Overrides: adjusts likely previously defined styles.
+ */
+.sidebar {
+  .block {
+    margin-bottom: 1.875rem;
+    border-top: 3px solid $color3;
+    background: $color8;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+      padding: .75rem 1.5rem;
+    }
+  }
+  .block__compact-form {
+    display: none;
+    @include breakpoint($med-plus, true) {
+      display: block;
+    }
+    .content {
+      padding: 0;
+    }
+    form {
+      background: $color8;
+      padding: 0 .75rem;
+      label {
+        font-size: 100%;
+      }
+      select {
+        font-size: inherit;
+      }
+      .form-submit {
+        font-size: inherit;
+        padding: .5rem;
+        width: 100%;
+      }
+    }
+    textarea {
+      max-height: 125px;
+    } 
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: .7rem;
+    font-weight: $font-weight-black;
+  }
+  .content {
+    padding: 0 2rem 2rem 2rem;;
+  }
+  p, li {
+    @include font-size-only($font-base);
+    @include line-height($line-height-3);
+  }
+  /* Paragraph Image-XS-Left-Text-Right */
+  h3 + .paragraph.image-xs-left-text-right {
+    margin-top: 0;
+  }
+  .paragraph.image-xs-left-text-right {
+    margin: -1rem 0;
+  }
+}
+

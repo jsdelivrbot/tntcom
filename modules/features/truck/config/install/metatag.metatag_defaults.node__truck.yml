@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__truck
+label: 'Content: Truck'
+tags:
+  description: '[node:title]'
+  title: '[node:title] | [site:name]'

@@ -1,0 +1,31 @@
+/**
+ *
+ * Needed CSS toggle because...
+ * Views Ajax form submit button kills JavaScript toggle (had created JS toggle 
+ * only to abandon it when I figure out Submit button Ajax kills the JS.
+ * 
+ * See template file at form/fieldset.html.twig
+ *
+ * http://codepen.io/bollskis/pen/aqykc
+ *
+ */
+
+#toggle-input {
+  display: none;
+}
+  
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: .3s ease max-height;
+}
+
+#toggle-input:checked {
+  & ~ .toggle-content {
+    max-height: 1000px;
+  }
+  & + .toggle-label:after {
+    content: "-";
+  }
+}
+

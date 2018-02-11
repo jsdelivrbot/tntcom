@@ -1,0 +1,42 @@
+bodigiti.xs:
+  label: xs
+  mediaQuery: 'all and (min-width: 0rem)' # 0rem or 0px
+  weight: 0
+  multipliers:
+    - 1x
+bodigiti.sm:
+  label: sm
+  mediaQuery: 'all and (min-width: 30rem)' # 30rem or 480px
+  weight: 1
+  multipliers:
+    - 1x
+bodigiti.med:
+  label: med
+  mediaQuery: 'all and (min-width: 57rem)' # 57rem or 912px
+  weight: 2
+  multipliers:
+    - 1x
+bodigiti.l:
+  label: l
+  mediaQuery: 'all and (min-width: 73.75rem)' # 73.75rem or 1180px
+  weight: 3
+  multipliers:
+    - 1x
+bodigiti.xl:
+  label: xl
+  mediaQuery: 'all and (min-width: 80rem)' # 80rem or 1,280px
+  weight: 4
+  multipliers:
+    - 1x
+bodigiti.xxl:
+  label: xxl
+  mediaQuery: 'all and (min-width: 118rem)' # 118rem or 1,888px
+  weight: 5
+  multipliers:
+    - 1x
+bodigiti.xxxl:
+  label: xxxl
+  mediaQuery: 'all and (min-width: 158rem)' # 158rem or 2,528px
+  weight: 6
+  multipliers:
+    - 1x

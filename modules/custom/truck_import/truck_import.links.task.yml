@@ -1,0 +1,4 @@
+truck_import.truck_import_form:
+  title: 'Import truck data'
+  route_name: truck_import.truck_import_form
+  base_route: system.admin_content

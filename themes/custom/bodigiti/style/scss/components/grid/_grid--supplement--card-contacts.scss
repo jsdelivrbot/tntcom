@@ -1,0 +1,20 @@
+
+////////////////////////////////////
+// Grid: Card Contacts
+////////////////////////////////////
+
+// See card-contact stylesheet for individual card styles
+
+.grid__card-contacts {
+  .grid-item {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    .card-contact {
+      // At first breakpoint of Grid-6 include min-height so items with long text do not break
+      @include breakpoint($sm, true) {
+        min-height: 450px;
+      }
+    } 
+  }
+}
+

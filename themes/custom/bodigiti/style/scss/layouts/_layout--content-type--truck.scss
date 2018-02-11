@@ -1,0 +1,140 @@
+
+.page-node-type-truck {
+  .label {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    width: 49%;
+    display: inline-block;
+  }
+  .value {
+    text-transform: uppercase;
+    width: 49%;
+    display: inline-block;
+  }
+}
+
+/////////////////////////////////////////////////////////
+// Primary A
+/////////////////////////////////////////////////////////
+
+#node-primary__a {
+  @include breakpoint($sm-plus, true) {
+    @include span(5 at 1 of 12);
+    padding: 0;
+  }
+  .images {
+    text-align: center;
+    @include breakpoint($sm-plus, true) {
+      .image {
+        width: 32%;
+        display: inline-block;
+      }
+      .image.first {
+        width: 100%; 
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////
+// Primary B
+/////////////////////////////////////////////////////////
+
+#node-primary__b {
+  background-color: $gray3;
+  padding: 2.5rem 1rem;
+  .node__title {
+    color: $color3;
+  }
+  @include breakpoint($sm-plus, true) {
+    @include span(7 at 6 of 12);
+    padding: 2.5rem; 
+  }
+  @include breakpoint($med, true) {
+    padding: 2.5rem 1.5rem 2.5rem 4.5rem;
+  }
+  .cta-button {
+    @include font-size-only($font-base-plus);
+    margin-bottom: .75rem;
+  }
+}
+
+#node-primary__b-one {
+  padding: 0 1rem 0 0; 
+  .field {
+    border-top: 1px solid $gray6;
+    padding: .25rem 0 .15rem 0;
+  }
+  @include breakpoint($med, true) {
+    @include span(6 at 1 of 12);
+    padding-right: 3rem;
+    border-right: 1px solid $gray6;
+  }
+}
+#node-primary__b-two {
+  @include breakpoint($med, true) {
+    @include span(6 at 7 of 12);
+    padding-left: 1.5rem;
+  }
+}
+#node-primary__b-three {
+  margin-top: 1rem;
+  .sharethis-inline-share-buttons {
+    text-align: left;
+    [data-network] {
+      display: inline-block !important;
+    }
+  }
+  @include breakpoint($med, true) {
+    .title {
+      float: left;
+      margin-right: 3rem;
+    }
+    .sharethis-inline-share-buttons {
+      float: left;
+      margin-top: .75rem;
+    }
+  }
+}
+
+
+/////////////////////////////////////////////////////////
+// Secondary
+/////////////////////////////////////////////////////////
+
+#node-secondary {
+  margin-top: 3rem;
+  .title {
+    color: $color3;
+  }
+}
+
+
+/////////////////////////////////////////////////////////
+// Print
+/////////////////////////////////////////////////////////
+
+@media print {
+.page-node-type-truck {
+    #navigation,
+    #footer,
+    #footer-post,
+    #node-primary__b-three,
+    #truck-primary-cta {
+      display: none !important;
+    }
+    #main {
+      padding-top: 1rem;
+    }
+    #footer-pre {
+      margin-top: 1rem;
+    }
+    #locations-plus-maps .col-group--3 {
+      margin-top: 2rem;
+      .knockout {
+        display: none;
+      }
+    }
+  }
+}
+

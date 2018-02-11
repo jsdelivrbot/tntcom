@@ -1,0 +1,41 @@
+
+/* Fix: Admin menu size when viewed from bodigiti theme pages. 
+ * Force admin menu toolbar to 14px when logged in and on non Admin-them pages,
+ * that is, the main theme
+ */
+.toolbar a {
+  font-size: 14px;
+}
+
+/* Fix: Admin menu drop-down menu items break over high z-index items of bodigit theme.
+ * Set admin toolbar menu items to greater z-index than any bodigiti theme's
+ * z-index so admin toolbar drop-down menus do not break when bodigit theme's
+ * menu items or other items have high z-index settings (such as 1000) 
+ */
+#toolbar-administration * {
+  z-index: 100000;
+}
+
+// Hide the toolbar or admin menu on small screens.
+@media all and (max-width: 800px) {
+  #toolbar, #admin-menu {
+    display: none;
+  }
+
+  html {
+    body.toolbar, body.admin-menu {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+  }
+}
+
+// Add margin between admin menu and website content on large screens.  
+@media all and (min-width: 801px) {
+  html {
+    body.admin-menu { 
+        margin-top: 1.75em !important;
+    }
+  }
+}
+

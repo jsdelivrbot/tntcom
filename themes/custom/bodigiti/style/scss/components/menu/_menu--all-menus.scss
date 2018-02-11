@@ -1,0 +1,15 @@
+
+/* All Menus */
+.menu {
+  margin: 0;
+  /* Override default browser padding */
+  padding-left: 0em;
+  .leaf {
+    /* Remove li preceeding style (disk, square, etc) */
+    list-style-type: none !important;
+  }
+  li {
+    padding-right: 1.25em;
+  }
+}
+

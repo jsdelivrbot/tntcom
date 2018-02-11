@@ -1,0 +1,19 @@
+
+truck_import.truck_import_form:
+  path: '/admin/content/truck-import'
+  defaults:
+    _form: '\Drupal\truck_import\Form\TruckImportForm'
+    _title: 'Import truck data'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+truck_import.truck_not_found_redirect:
+  path: '/trucks/{title}'
+  defaults:
+    _controller: '\Drupal\truck_import\Controller\TruckNotFound::notFound'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE

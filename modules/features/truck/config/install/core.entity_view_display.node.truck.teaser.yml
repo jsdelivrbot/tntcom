@@ -1,0 +1,98 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.truck.field_truck_axle_front
+    - field.field.node.truck.field_truck_axle_rear
+    - field.field.node.truck.field_truck_body_type
+    - field.field.node.truck.field_truck_category
+    - field.field.node.truck.field_truck_color
+    - field.field.node.truck.field_truck_condition
+    - field.field.node.truck.field_truck_description
+    - field.field.node.truck.field_truck_drive
+    - field.field.node.truck.field_truck_engine_brake
+    - field.field.node.truck.field_truck_engine_mfr
+    - field.field.node.truck.field_truck_engine_type
+    - field.field.node.truck.field_truck_gvw
+    - field.field.node.truck.field_truck_horsepower
+    - field.field.node.truck.field_truck_image
+    - field.field.node.truck.field_truck_location
+    - field.field.node.truck.field_truck_mfr
+    - field.field.node.truck.field_truck_mileage
+    - field.field.node.truck.field_truck_price
+    - field.field.node.truck.field_truck_quantity
+    - field.field.node.truck.field_truck_ratio
+    - field.field.node.truck.field_truck_sleeper
+    - field.field.node.truck.field_truck_sleeper_size
+    - field.field.node.truck.field_truck_stock_number
+    - field.field.node.truck.field_truck_suspension
+    - field.field.node.truck.field_truck_tires
+    - field.field.node.truck.field_truck_transmission
+    - field.field.node.truck.field_truck_vin
+    - field.field.node.truck.field_truck_wheelbase
+    - field.field.node.truck.field_truck_wheels
+    - field.field.node.truck.field_truck_year
+    - node.type.truck
+  module:
+    - field_limiter
+    - user
+id: node.truck.teaser
+targetEntityType: node
+bundle: truck
+mode: teaser
+content:
+  field_truck_image:
+    type: field_limiter
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      type: image
+      settings:
+        image_style: max_250x186
+        image_link: content
+      offset: 0
+      limit: 1
+    third_party_settings: {  }
+  field_truck_price:
+    type: number_decimal
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+hidden:
+  field_truck_axle_front: true
+  field_truck_axle_rear: true
+  field_truck_body_type: true
+  field_truck_category: true
+  field_truck_color: true
+  field_truck_condition: true
+  field_truck_description: true
+  field_truck_drive: true
+  field_truck_engine_brake: true
+  field_truck_engine_mfr: true
+  field_truck_engine_type: true
+  field_truck_gvw: true
+  field_truck_horsepower: true
+  field_truck_location: true
+  field_truck_mfr: true
+  field_truck_mileage: true
+  field_truck_quantity: true
+  field_truck_ratio: true
+  field_truck_sleeper: true
+  field_truck_sleeper_size: true
+  field_truck_stock_number: true
+  field_truck_suspension: true
+  field_truck_tires: true
+  field_truck_transmission: true
+  field_truck_vin: true
+  field_truck_wheelbase: true
+  field_truck_wheels: true
+  field_truck_year: true
+  links: true

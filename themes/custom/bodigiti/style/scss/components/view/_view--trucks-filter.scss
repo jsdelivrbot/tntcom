@@ -1,0 +1,122 @@
+
+////////////////////////////////////////////////////////////////////////////////
+// All Filters
+////////////////////////////////////////////////////////////////////////////////
+
+.trucks-filter {
+  @include clearfix;
+  label {
+    display: block;
+  }
+  select {
+    width: 100%;
+    @include breakpoint($med-plus, true) {
+      font-size: 100%;
+    }
+  }
+  .fieldset-legend,
+  .bef-toggle,
+  label {
+    color: $color1;
+  }
+  /* Select all/non */
+  .bef-select-all-none {
+    @include clearfix;
+    margin-top: .75rem;
+  }
+  /* Sort by */
+  .form-item-sort-bef-combine {
+    @include breakpoint($med-plus, true) {
+      width: 22.75%;
+      display: inline;
+      float: left;
+    }
+  }
+  /* Submit button wrapper */
+  .form-actions {
+    @include breakpoint($med-plus, true) {
+      display: inline;
+      float: left;
+    }
+  }
+  /* Submit button */
+  .form-submit {
+    @include font-size($font-base);
+    padding: .5rem;
+  }
+  .button {
+    width: 100%;
+  }
+  .views-exposed-form {
+    @include clearfix;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Top Filter
+////////////////////////////////////////////////////////////////////////////////
+
+#trucks-filter__top {
+  .block__title {
+    @include font-size-only($font-xxlarge);
+  }
+  label {
+    display: none;
+  }
+  margin-bottom: 1rem;
+  @include breakpoint($med-plus, true) {
+    .block__title, 
+    .form-item-tid,
+    .form-item-tid-1,
+    .form-item-tid-2,
+    .form-item-tid-3,
+    .form-item-tid-4,
+    #edit-reset {
+     display: none;
+    }
+    /* Submit button */
+    .form-submit {
+      color: $gray7;
+      background-color: $color5;
+      border: solid 2px $color5;
+      padding: .5rem 1rem; 
+      &:hover {
+        color: $color2;
+        background: $color3;
+        border: solid 2px $color3;
+      }
+    }
+    /* Sort */
+    #edit-sort-bef-combine {
+      width: auto;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Sidebar Filter
+////////////////////////////////////////////////////////////////////////////////
+
+#trucks-filter__sidebar {
+  display: none;
+  @include breakpoint($med-plus, true) {
+    display: block;
+  }
+  .content {
+    .form-item-sort-bef-combine {
+      display: none;
+    }
+    #edit-reset {
+      margin-top: 1rem;
+    }
+    select {
+      background-color: $color2;
+    }
+    .form-actions {
+      margin-bottom: 0;
+      display: block;
+      float: none;
+    }
+  }
+}
+

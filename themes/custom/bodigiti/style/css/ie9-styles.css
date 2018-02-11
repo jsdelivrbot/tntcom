@@ -1,0 +1,31 @@
+/**
+ * Internet Explorer 9
+ */
+/** 
+ * Image Modules used in Block type Sidebar, for the sidebar, would not contain 
+ * the image size, so images appeared as their full width & height
+ */
+.sidebar img {
+  width: 100%; }
+
+/**
+ * IE9
+ * Grid 6 Across 
+ */
+.max-three-across.grid-6 .grid--title :first-child {
+  /* reset so titles that wrap do not get pushed down on top of the image */
+  position: static;
+  top: 0;
+  transform: none; }
+
+/**
+ * IE9 
+ * email field was not vertically sizing appropriately.
+ * the text box and the gray shading were overlapping on the bottom of the field.
+ * the following fixes it for IE9 and also looks fine on other browsers.
+ */
+.compact-form .form-email {
+  font-size: 1.35rem;
+  line-height: 1.35rem; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9pZTkuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTs7R0FFRztBQUVIOzs7R0FHRztBQUNIO0VBRUksWUFBVyxFQUNaOztBQUdIOzs7R0FHRztBQUVIO0VBQ0UsMEVBQTBFO0VBQzFFLGlCQUFnQjtFQUNoQixPQUFNO0VBQ04sZ0JBQWUsRUFDaEI7O0FBRUQ7Ozs7O0dBS0c7QUFFSDtFQUNFLG1CQUFrQjtFQUNsQixxQkFBb0IsRUFDckIiLCJmaWxlIjoiaWU5LXN0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi8qKlxuICogSW50ZXJuZXQgRXhwbG9yZXIgOVxuICovXG5cbi8qKiBcbiAqIEltYWdlIE1vZHVsZXMgdXNlZCBpbiBCbG9jayB0eXBlIFNpZGViYXIsIGZvciB0aGUgc2lkZWJhciwgd291bGQgbm90IGNvbnRhaW4gXG4gKiB0aGUgaW1hZ2Ugc2l6ZSwgc28gaW1hZ2VzIGFwcGVhcmVkIGFzIHRoZWlyIGZ1bGwgd2lkdGggJiBoZWlnaHRcbiAqL1xuLnNpZGViYXIge1xuICBpbWcge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG59XG5cbi8qKlxuICogSUU5XG4gKiBHcmlkIDYgQWNyb3NzIFxuICovXG5cbi5tYXgtdGhyZWUtYWNyb3NzLmdyaWQtNiAuZ3JpZC0tdGl0bGUgOmZpcnN0LWNoaWxkIHtcbiAgLyogcmVzZXQgc28gdGl0bGVzIHRoYXQgd3JhcCBkbyBub3QgZ2V0IHB1c2hlZCBkb3duIG9uIHRvcCBvZiB0aGUgaW1hZ2UgKi9cbiAgcG9zaXRpb246IHN0YXRpYztcbiAgdG9wOiAwO1xuICB0cmFuc2Zvcm06IG5vbmU7XG59XG5cbi8qKlxuICogSUU5IFxuICogZW1haWwgZmllbGQgd2FzIG5vdCB2ZXJ0aWNhbGx5IHNpemluZyBhcHByb3ByaWF0ZWx5LlxuICogdGhlIHRleHQgYm94IGFuZCB0aGUgZ3JheSBzaGFkaW5nIHdlcmUgb3ZlcmxhcHBpbmcgb24gdGhlIGJvdHRvbSBvZiB0aGUgZmllbGQuXG4gKiB0aGUgZm9sbG93aW5nIGZpeGVzIGl0IGZvciBJRTkgYW5kIGFsc28gbG9va3MgZmluZSBvbiBvdGhlciBicm93c2Vycy5cbiAqL1xuXG4uY29tcGFjdC1mb3JtIC5mb3JtLWVtYWlsIHtcbiAgZm9udC1zaXplOiAxLjM1cmVtO1xuICBsaW5lLWhlaWdodDogMS4zNXJlbTtcbn1cblxuIl19 */

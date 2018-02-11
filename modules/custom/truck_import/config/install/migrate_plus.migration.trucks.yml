@@ -1,0 +1,114 @@
+uuid: 67aa95f1-e715-4eca-87d7-345f37b9b560
+langcode: en
+status: true
+dependencies:
+  module:
+    - migrate_plus
+    - migrate_source_csv
+  enforced:
+    module:
+      - truck_import
+id: trucks
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: trucks
+label: 'Import trucks'
+source:
+  plugin: csv
+  path: 'public://import/trucks.csv'
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - DSLookupID
+  column_names: null
+process:
+  title: DisplayName
+  field_truck_description: Description
+  field_truck_image:
+    -
+      plugin: explode
+      delimiter: ', '
+      source: PictureList
+    -
+      plugin: truck_source_dest
+      dest_prefix: 'public://images-truck/'
+      dest_suffix: .jpg
+    -
+      plugin: file_copy
+    -
+      plugin: entity_generate
+    -
+      plugin: index_to_assoc
+      source:
+        -
+        - DisplayName
+      keys:
+        - target_id
+        - alt
+  field_truck_price: ForSaleListPrice
+  field_truck_mileage: mileage
+  field_truck_year:
+    plugin: entity_generate
+    source: Year
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: truck_year
+    value_key: name
+  field_truck_quantity: Quantity
+  field_truck_condition:
+    plugin: entity_generate
+    source: Condition
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: truck_condition
+    value_key: name
+  field_truck_category:
+    plugin: entity_generate
+    source: Category
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: truck_category
+    value_key: name
+  field_truck_mfr:
+    plugin: entity_generate
+    source: Manufacturer
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: truck_mfr
+    value_key: name
+  field_truck_stock_number: StockNumber
+  field_truck_vin: VINSerialNumber
+  field_truck_location:
+    plugin: entity_generate
+    source: DSLocationName
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: truck_location
+    value_key: name
+  field_truck_engine_mfr: engine
+  field_truck_engine_type: enginetype
+  field_truck_horsepower: horsepower
+  field_truck_engine_brake: enginebrake
+  field_truck_transmission: transmission
+  field_truck_drive: drive
+  field_truck_axle_front: frontaxlelbs
+  field_truck_axle_rear: rearaxlelbs
+  field_truck_ratio: ratio
+  field_truck_tires: tires
+  field_truck_wheelbase: wheelbase
+  field_truck_suspension: suspension
+  field_truck_body_type: cab
+  field_truck_gvw: grossvehicleweight
+  field_truck_sleeper: sleeper
+  field_truck_sleeper_size: sleepersize
+  field_truck_color: color
+  field_truck_wheels: wheels
+  type:
+    plugin: default_value
+    default_value: truck
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

@@ -1,0 +1,141 @@
+
+////////////////////////////////////////////////////////////////////////////////
+// Margins & Padding for misc, including use in classy paragraphs
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////
+// Margin
+////////////////////////////////////////////////////
+
+// Margin None ////////////////////////////////////
+.margin-top__none {
+  margin-top: 0px;
+  margin-top: 0rem;
+}
+
+.margin-bottom__none {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+.margin-top-bottom__none {
+  margin-top: 0px;
+  margin-top: 0rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+
+// Margin X-Small ////////////////////////////////////
+.margin-top__xs {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.margin-bottom__xs {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.margin-top-bottom__xs {
+  margin-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+// Margin Small ////////////////////////////////////
+.margin-top__sm {
+  margin-top: 32px;
+  margin-top: 2rem;
+}
+
+.margin-bottom__sm {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+
+.margin-top-bottom__sm {
+  margin-top: 32px;
+  margin-top: 2rem;
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+
+// Margin Medium ////////////////////////////////////
+.margin-top__md {
+  margin-top: 48px;
+  margin-top: 3rem;
+}
+
+.margin-bottom__md {
+  margin-bottom: 48px;
+  margin-bottom: 3rem;
+}
+
+.margin-top-bottom__md {
+  margin-top: 48px;
+  margin-top: 3rem;
+  margin-bottom: 48px;
+  margin-bottom: 3rem;
+}
+
+// Margin large ////////////////////////////////////
+.margin-top__lg {
+  margin-top: 64px;
+  margin-top: 4rem;
+}
+
+.margin-bottom__lg {
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
+
+.margin-top-bottom__lg {
+  margin-top: 64px;
+  margin-top: 4rem;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
+
+// Margin x-large ////////////////////////////////////
+.margin-top__xl {
+  margin-top: 80px;
+  margin-top: 5rem;
+}
+
+.margin-bottom__xl {
+  margin-bottom: 80px;
+  margin-bottom: 5rem;
+}
+
+.margin-top-bottom__xl {
+  margin-top: 80px;
+  margin-top: 5rem;
+  margin-bottom: 80px;
+  margin-bottom: 5rem;
+}
+
+////////////////////////////////////////////////////
+// Padding
+////////////////////////////////////////////////////
+
+.padding-right-left__lg {
+  padding-right: 64px;
+  padding-right: 4rem;
+  padding-left: 64px;
+  padding-left: 4rem;
+}
+.padding-right-left__md {
+  padding-right: 48px;
+  padding-right: 3rem;
+  padding-left: 48px;
+  padding-left: 3rem;
+}
+.padding-right-left__sm {
+  padding-right: 32px;
+  padding-right: 2rem;
+  padding-left: 32px;
+  padding-left: 2rem;
+}
+

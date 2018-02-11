@@ -1,0 +1,27 @@
+
+.path-user {
+  #main-wrapper {
+    @include row;
+    @include clearfix;
+  }
+  #main {
+    padding-top: 3rem;
+  }
+  #content {
+    padding: 0 1rem;
+    @include breakpoint($l, true) {
+      @include span(8 at 1 of 12);
+      padding: 0;
+    }
+  }
+  #featured-top,
+  #featured-bottom,
+  #sidebar-first,
+  #sidebar-second,
+  #footer-pre,
+  #footer,
+  #footer-post {
+    display: none;
+  }
+}
+

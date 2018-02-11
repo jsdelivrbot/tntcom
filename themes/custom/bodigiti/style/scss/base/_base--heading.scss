@@ -1,0 +1,62 @@
+/**
+ * Headings 
+ */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-family: $font-family-headings;
+  color: $color1;
+  &.font-weight-regular {
+    font-weight: $font-weight-regular;
+  }
+}
+
+h1,
+.alt-h1 {
+  @include font-size-only($font-large);
+  @include line-height($line-height-5);
+  margin: 0 0 .75rem 0;
+  /* Responsive Resize */
+  @include breakpoint($med-plus, true) {
+    @include font-size-only($font-xxlarge);
+    @include line-height($line-height-7);
+  }
+}
+
+h2,
+.alt-h2 {
+  @include font-size($font-medium);
+  @include line-height($line-height-4);
+  margin: 0.83rem 0;
+  font-weight: $font-weight-bold;
+  a {
+    color: $color3;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  /* Responsive Resize */
+  @include breakpoint($med-plus, true) {
+    @include font-size-only($font-large);
+    @include line-height($line-height-5);
+  }
+}
+
+h3,
+.alt-h3 {
+  @include font-size($font-standard, $line-height-3);
+  font-weight: $font-weight-bold;
+  margin: 1rem 0;
+  &.subtitle {
+    margin-top: 0;
+  }
+  /* Responsive Resize */
+  @include breakpoint($med-plus, true) {
+    @include font-size($font-medium-large, $line-height-4);
+  }
+}
+

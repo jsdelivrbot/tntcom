@@ -1,0 +1,32 @@
+
+.grid-4 {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 2.5rem;
+  margin-bottom: 1.5rem;
+  .one,
+  .three {
+    @include breakpoint($l, true) {
+      @include span(3 at 1 of 6);
+    }
+  }
+  .two,
+  .four {
+    @include breakpoint($l, true) {
+      @include span(3 at 4 of 6);
+    }
+  }
+  h1, h2, h3, p {
+    margin: 0 0 .5rem 0;
+  }
+  h2:nth-child(2) {
+    @include breakpoint($l) {
+      @include font-size($font-medium);
+    }
+    @include breakpoint($xl, true) {
+      @include font-size($font-medium-large);
+    }
+  }
+}
+

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.trucks
+  module:
+    - infinite_blocks
+    - system
+    - views
+  theme:
+    - bodigiti
+third_party_settings:
+  infinite_blocks:
+    id: trucks-filter__sidebar
+    classes: trucks-filter
+    title_tag: div
+    block_tag: div
+id: exposedformtruckspage_1_2
+theme: bodigiti
+region: sidebar_first
+weight: -14
+provider: null
+plugin: 'views_exposed_filter_block:trucks-page_1'
+settings:
+  id: 'views_exposed_filter_block:trucks-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: 'Truck Search'
+visibility:
+  request_path:
+    id: request_path
+    pages: /trucks
+    negate: false
+    context_mapping: {  }

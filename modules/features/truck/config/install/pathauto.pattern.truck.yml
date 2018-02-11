@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: truck
+label: Truck
+type: 'canonical_entities:node'
+pattern: 'trucks/[node:title]'
+selection_criteria:
+  32ac6c80-7564-46f4-a6f9-bf8fae76c21c:
+    id: node_type
+    bundles:
+      truck: truck
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 32ac6c80-7564-46f4-a6f9-bf8fae76c21c
+selection_logic: and
+weight: -5
+relationships: {  }

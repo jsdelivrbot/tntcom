@@ -1,0 +1,28 @@
+
+////////////////////////////////////////////////////
+// Footer
+////////////////////////////////////////////////////
+
+#footer {
+  display: none;
+  @include breakpoint($med, true) {
+    display: block; 
+  }
+  @include background-and-text($color6, $color2);
+  * {
+    text-align: center;
+    @include breakpoint($sm, true) {
+      text-align: left; 
+    }
+  }
+  .layout-container {
+    @include row;
+    padding: 16px 16px 32px 16px;
+    padding: 1rem 1rem 2rem 1rem;
+    @include breakpoint($l, true) {
+      padding: 16px 0px 32px 0px;
+      padding: 1rem 0rem 2rem 0rem;
+    }
+  }
+}
+

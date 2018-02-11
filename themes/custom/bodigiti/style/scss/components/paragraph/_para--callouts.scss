@@ -1,0 +1,165 @@
+
+////////////////////////////////////////////////////
+// Callouts
+////////////////////////////////////////////////////
+
+.paragraph--callouts {
+  .paragraph {
+    margin-bottom: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    .title {
+      // needed to override base heading margins
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      display: block;
+      height: 100%;
+      &:hover {
+        text-decoration: none;
+        opacity: .8;
+      }
+    }
+    img {
+      display: block;
+    } 
+  }
+}
+
+/////////////////////////////////
+// Max 2 Paragraphs Wide
+/////////////////////////////////
+
+.paragraph--callouts.max-wide-2 {
+  @include row-small;
+  .paragraph {
+    max-width: 450px;
+    padding: 0 1rem;
+    margin-bottom: 4rem;
+    @include breakpoint($med, true) {
+      max-width: 400px;
+      // select every odd paragraph
+      &:nth-child(odd) {
+        @include span(5 at 1 of 12);
+        padding-left: 1rem;
+      }
+      // select every even paragraph
+      &:nth-child(even) {
+        @include span(5 at 8 of 12);
+        padding-right: 1rem;
+      }
+    }
+    @include breakpoint($l, true) {
+      max-width: 450px;
+      padding: 0;
+    }
+  }
+}
+
+/////////////////////////////////
+// Max 3 Paragraphs Wide
+/////////////////////////////////
+
+.paragraph--callouts.max-wide-3 {
+  @include row-small;
+  .paragraph {
+    .inner {
+      max-width: 240px;
+      margin: 0 auto;
+    } 
+    padding: 0 1rem;
+    margin-bottom: 4rem;
+    @include breakpoint($sm-plus, true) {
+      padding: 0;
+      // select every odd paragraph
+      &:nth-child(odd) {
+        @include span(3 at 1 of 6);
+      }
+      // select every even paragraph
+      &:nth-child(even) {
+        @include span(3 at 4 of 6);
+      }
+    }
+    @include breakpoint($l, true) {
+      // select every 3rd starting at 1st
+      &:nth-child(3n+1) {
+        @include span(2 at 1 of 6);
+      }
+      // select every 3rd starting at 2nd
+      &:nth-child(3n+2) {
+        @include span(2 at 3 of 6);
+      }
+      // select every 3rd starting at 3rd
+      &:nth-child(3n+3) {
+        @include span(2 at 5 of 6);
+      }
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////
+// Stacked Design
+//////////////////////////////////////////////////////
+
+// note: cannot use _card--teaser.scss as mixin here because markup is different
+.paragraph--callout.stacked {
+  .title {
+    color: $color2;
+    background: $color3;
+    padding: 1rem;
+    text-align: center;
+  }
+  .text-cta {
+    @include font-size($font-base-plus);
+    background: $color5;
+    padding: 1rem;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    } 
+  }
+}
+
+//////////////////////////////////////////////////////
+// Basic Design
+//////////////////////////////////////////////////////
+
+.paragraph--callout.basic {
+  a {
+    color: $color1;
+  }
+  img {
+    margin-bottom: 12px;
+    margin-bottom: .75rem;
+  }
+  .title,
+  .text-summary,
+  .text-cta {
+    padding: 0 16px 0 16px;
+    padding: 0 1rem 0 1rem;
+    @include breakpoint($sm, true) {
+      padding: 0;
+    } 
+  }
+  .title {
+    @include font-size($font-standard);
+    margin-bottom: 4px;
+    margin-bottom: .25rem;
+  }
+  .text-summary {
+    p, ol, li, ul, div {
+      @include font-size($font-base);
+      margin: 0 0 .5rem 0;
+    }
+  }
+  .text-cta {
+    @include font-size($font-base);
+    color: $color3;
+    &:hover {
+      text-decoration: underline;
+    } 
+  }
+}
+

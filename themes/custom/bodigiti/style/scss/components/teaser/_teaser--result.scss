@@ -1,0 +1,31 @@
+
+/*
+ * Teaser Result
+ * Support styling of:
+ *   -View Trucks
+ *   -Search (if applicable)
+ */
+
+
+/* Teasers: Views + Search API Results */
+.teaser-result {
+  padding: 1rem 0;
+  a {
+    text-decoration: none;
+  }
+  /* Button to node url */
+  .link-node {
+    display: inline-block;
+    margin: 1rem 0 .5rem 0;
+    a {
+      color: $gray7;
+      background: $color5;
+      padding: .75rem 1.5rem;
+      &:hover {
+        color: $color2;
+        background: $color3;
+      }
+    }
+  }
+}
+

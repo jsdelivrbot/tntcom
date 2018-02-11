@@ -1,0 +1,7 @@
+
+.paragraph--type--slide {
+  display: none;
+  @include breakpoint($sm-plus, true) {
+    display: block;
+  }
+}

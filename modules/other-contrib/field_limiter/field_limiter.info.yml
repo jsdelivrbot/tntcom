@@ -1,0 +1,7 @@
+name: Field Limiter
+type: module
+description: Limit the number of field values rendered by a formatter.
+core: 8.x
+dependencies:
+  - field_formatter
+package: Other

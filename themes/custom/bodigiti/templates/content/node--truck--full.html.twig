@@ -1,0 +1,281 @@
+{#
+/**
+ * @file
+ * Bartik's theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('bodigiti/truck-content-type') }}
+<article{{ attributes.addClass(classes) }}>
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+  {############################################################################}
+  {# Primary Group ############################################################}
+    <div id="node-primary" class="clearfix">
+    <div class="container">
+    {# Primary A #}
+      <div id="node-primary__a" class="">
+        <div class="field images">
+          {# image field markup set in field--node--field-truck-image--truck.html.twig #} 
+          {# Do not request '|field_value' because that excludes field settings #}
+          {{ content.field_truck_image }}
+        </div>
+      </div>
+    {# END: Primary A #}
+    {# Primary B #}
+      <div id="node-primary__b" class="">
+        {# Output page title in node with node.label https://drupal.stackexchange.com/a/187520 #}
+        <h1{{ title_attributes.addClass('node__title') }}>{{ node.label }}</h1>
+        {# Primary B-One + B-Two #}
+        <div id="node-primary__b-one-two" class="clearfix">
+        {# Primary B-One #}
+        <div id="node-primary__b-one">
+          {# Drupal_Block token relies on module 'twig_tweak' #}
+          {{ drupal_block('truck_primary_title') }}
+          <div class="field">
+            <span class="label">Stock No:</span>
+            <span class="value">{{ content.field_truck_stock_number|field_value }}</span>
+          </div>
+          <div class="field">
+            <span class="label">VIN:</span>
+            <span class="value">{{ content.field_truck_vin|field_value }}</span>
+          </div>
+          <div class="field">
+            <span class="label">Engine:</span>
+            <span class="value">{{ content.field_truck_engine_mfr|field_value }}</span>
+          </div>
+          <div class="field">
+            <span class="label">Trans:</span>
+            <span class="value">{{ content.field_truck_transmission|field_value }}</span>
+          </div>
+          <div class="field">
+            <span class="label">Mileage:</span>
+            <span class="value">{{ content.field_truck_mileage|field_value }}</span>
+          </div>
+        {# Drupal_Block token relies on module 'twig_tweak' #}
+        {{ drupal_block('truck_primary_view_detail') }}
+        </div>
+        {# END: Primary B-One #}
+      {# Primary B-Two #}
+        <div id="node-primary__b-two">
+          <div class="field">
+            <div class="value alt-h2">{{ content.field_truck_price|field_value }}</div>
+          </div>
+          {# Drupal_Block token relies on module 'twig_tweak' #}
+          {{ drupal_block('truck_primary_cta') }}
+        </div>
+      {# END: Primary B-Two #}
+      </div>       
+      {# END: Primary B-One + B-Two #}
+      {# Primary B-Three #}
+        <div id="node-primary__b-three">
+          {# Drupal_Block token relies on module 'twig_tweak' #}
+          {{ drupal_block('truck_primary_sharethis') }}
+        </div>
+      {# END: Primary B-Three #}
+      </div> 
+    {# END: Primary B #}
+    </div>
+    </div>
+  {# End: Primary Group #######################################################}
+  {############################################################################}
+
+  {############################################################################}
+  {# Secondary Group ##########################################################}
+    <div id="node-secondary" name="node-secondary" class="clearfix">
+    <div class="container">
+      <h2 class="title">Detailed Specs</h2>
+      <table class="rwd-table three-max">
+        <tr class="odd">
+          <td>
+            <span class="label">Manufacturer</span>
+            <span class="value">{{ content.field_truck_mfr|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Mileage</span>
+            <span class="value">{{ content.field_truck_mileage|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Category</span>
+            <span id="field-truck-category-value" class="value">{{ content.field_truck_category|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+             <span class="label">Engine Mfr</span>
+             <span class="value">{{ content.field_truck_engine_mfr|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Engine Type</span>
+            <span class="value">{{ content.field_truck_engine_type|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Horsepower</span>
+            <span class="value">{{ content.field_truck_horsepower|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td>
+            <span class="label">Engine Brake</span>
+            <span class="value">{{ content.field_truck_engine_brake|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Transmission</span>
+            <span class="value">{{ content.field_truck_transmission|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Drive</span>
+            <span class="value">{{ content.field_truck_drive|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+            <span class="label">Axle Front</span>
+            <span class="value">{{ content.field_truck_axle_front|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Axle Rear</span>
+            <span class="value">{{ content.field_truck_axle_rear|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Ratio</span>
+            <span class="value">{{ content.field_truck_ratio|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td>
+            <span class="label">Tire Size</span>
+            <span class="value">{{ content.field_truck_tires|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Wheel Base</span>
+            <span class="value">{{ content.field_truck_wheelbase|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Wheels</span>
+            <span class="value">{{ content.field_truck_wheels|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+            <span class="label">Suspension</span>
+            <span class="value">{{ content.field_truck_suspension|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Body Type</span>
+            <span class="value">{{ content.field_truck_body_type|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">GVW</span>
+            <span class="value">{{ content.field_truck_gvw|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td>
+            <span class="label">Sleeper</span>
+            <span class="value">{{ content.field_truck_sleeper|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Sleeper Size</span>
+            <span class="value">{{ content.field_truck_sleeper_size|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Color</span>
+            <span class="value">{{ content.field_truck_color|field_value }}</span>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+            <span class="label">Year</span>
+            <span class="value">{{ content.field_truck_year|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">Stock No.</span>
+            <span class="value">{{ content.field_truck_stock_number|field_value }}</span>
+          </td>
+          <td>
+            <span class="label">VIN</span>
+            <span class="value">{{ content.field_truck_vin|field_value }}</span>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <div class="">NOTES:</div>
+        <div class="">{{ content.field_truck_description|field_value }}</div>
+      </div>
+    </div>
+    </div>
+  {# End: Secondary Group #####################################################}
+  </div>
+</article>

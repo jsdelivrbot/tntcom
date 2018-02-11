@@ -1,0 +1,32 @@
+
+.user-logged-in {
+ /**
+  * System stylesheet for contextual links with "edit" icon is positioned as "absolute".
+  * Absolute positioning is relative to the FIRST ancestor's positioning property.
+  * Therefore, in order for the edit icons to appear in the proper place, in the blocks,
+  * the blocks need to have a "position" property applied to them; otherwise,
+  * the "absolute" positioning on the block edit links simply positions the icons in the 
+  * upper-right of the page, hidden behind the admin menu.
+  *
+  * See absolute positioning in the contextual links: class="contextual" ... position: absolute;
+  */
+  .block {
+    position: relative;
+  }
+  /**
+   * Contextual Links
+   */
+  /* Add background to Open contextual links, otherwise links can get blocked by active theme's elements */
+  .contextual.open {
+    background: white;
+  } 
+  /* format links: override active theme styling so all contextual-links looks the same */  
+  .contextual-links li {
+    @include font-size($font-base);
+    font-weight: normal;
+    a {
+      color: $color1 !important;
+    }
+  }
+}
+

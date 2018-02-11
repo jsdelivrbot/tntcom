@@ -1,0 +1,39 @@
+
+/**
+ * Internet Explorer 9
+ */
+
+/** 
+ * Image Modules used in Block type Sidebar, for the sidebar, would not contain 
+ * the image size, so images appeared as their full width & height
+ */
+.sidebar {
+  img {
+    width: 100%;
+  }
+}
+
+/**
+ * IE9
+ * Grid 6 Across 
+ */
+
+.max-three-across.grid-6 .grid--title :first-child {
+  /* reset so titles that wrap do not get pushed down on top of the image */
+  position: static;
+  top: 0;
+  transform: none;
+}
+
+/**
+ * IE9 
+ * email field was not vertically sizing appropriately.
+ * the text box and the gray shading were overlapping on the bottom of the field.
+ * the following fixes it for IE9 and also looks fine on other browsers.
+ */
+
+.compact-form .form-email {
+  font-size: 1.35rem;
+  line-height: 1.35rem;
+}
+

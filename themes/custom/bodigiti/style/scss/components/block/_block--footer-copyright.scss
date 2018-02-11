@@ -1,0 +1,22 @@
+
+
+#footer-copyright {
+  text-align: center;
+  p {
+    @include font-size-only($font-small);
+    color: $gray8;
+  }
+  @include breakpoint($med, true) {
+    text-align: left;
+  }
+  @include breakpoint($l, true) {
+    width: 39%;
+    text-align: right;
+    padding-top: 1.7rem;
+    // Relies on style in _footer.scss - position: absolute
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}
+

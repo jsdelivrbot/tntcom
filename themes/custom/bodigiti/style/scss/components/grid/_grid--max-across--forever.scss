@@ -1,0 +1,113 @@
+
+///////////////////////////////////////////////////////////////////////////////
+// Max 3-Across
+///////////////////////////////////////////////////////////////////////////////
+
+// Base layout behavior. See component-specific use in SUPPLEMENTAL stylesheet
+
+.grid-max__three-across {
+  display: inline-block;
+  width: 100%;
+  /* breakpoint $sm */
+  @include breakpoint($sm, true) {
+    .grid--one,
+    .grid--three,
+    .grid--five {
+      @include span(3 at 1 of 6);
+    }
+    .grid--two,
+    .grid--four,
+    .grid--six {
+      @include span(3 at 4 of 6);
+    }
+  }
+  /* breakpoint $l */
+  @include breakpoint($l, true) {
+    .grid--one,
+    .grid--four {
+      @include span(2 at 1 of 6);
+    }
+    .grid--two,
+    .grid--five {
+      @include span(2 at 3 of 6);
+    }
+    .grid--three,
+    .grid--six {
+      @include span(2 at 5 of 6);
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Max 2-Across
+///////////////////////////////////////////////////////////////////////////////
+
+.grid-max__two-across {
+  text-align: center;
+  @include breakpoint($sm, true) {
+   max-width: 46rem;
+   margin-left: auto;
+   margin-right: auto;
+  }
+  .container {
+    @include clearfix; 
+  }
+  /* vertical-align center the grid titles */
+  .grid-item {
+    max-width: 18.75rem;
+    margin-bottom: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .grid--six {
+    margin-bottom: 0;
+  }
+  /* breakpoint $sm */
+  @include breakpoint($sm) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    .grid-item {
+      margin-bottom: 2rem;
+    }
+    .grid--one,
+    .grid--three,
+    .grid--five {
+      @include span(3 at 1 of 6);
+    }
+    .grid--two,
+    .grid--four,
+    .grid--six {
+      @include span(3 at 4 of 6);
+    }
+    .grid--five,
+    .grid--six {
+      margin-bottom: 0;
+    }
+    .grid-item--link {
+      height: 3.5rem;
+    }
+  }
+  /* breakpoint $l */
+  @include breakpoint($l, true) {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    .grid-item {
+      margin-bottom: 4rem;
+    }
+    .grid--one,
+    .grid--three,
+    .grid--five {
+      margin-right: 1rem;
+    }
+    .grid--two,
+    .grid--four,
+    .grid--six {
+      margin-left: 1rem;
+    }
+    .grid--five,
+    .grid--six {
+      margin-bottom: 0;
+    } 
+  }
+}
+

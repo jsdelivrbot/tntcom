@@ -1,0 +1,92 @@
+
+/*
+ * View Trucks 
+ * Final result styling depends on:
+ *   _teaser-result.scss
+ */
+
+/* View Product Filter */
+.view-trucks {
+  margin-bottom: 4rem;
+  .teaser-result,
+  /* Search node result template has view-product-filter class and classes
+   * are all within the same html attribute so specificity is different 
+   * .view-product-filter .teaser-result vs .view-product-filter.teaser-result */
+  &.teaser-result {
+    border-bottom: 1px solid $gray1;
+  }
+  .teaser-result:first-of-type,
+  /* Search node result template has view-product-filter class and classes
+   * are all within the same html attribute so specificity is different 
+   * .view-product-filter .teaser-result vs .view-product-filter.teaser-result */
+  &.teaser-result:first-of-type {
+    border-top: 1px solid $gray1;
+  }
+}
+
+/******************************************************************************/
+
+
+.truck-teaser__group-image { 
+  @include breakpoint($xs, true) {
+    @include span(4 at 1 of 10);
+  }
+  @include breakpoint($sm, true) {
+    @include span(4 at 1 of 12);
+  }
+}
+.truck-teaser__group-details { 
+  @include breakpoint($xs, true) {
+    @include span(5 at 6 of 10);
+  }
+  @include breakpoint($sm, true) {
+    @include span(7 at 6 of 12);
+  }
+  @include breakpoint($med-plus, true) {
+    @include span(8 at 5 of 12);
+    margin-top: 1rem;
+  }
+}
+
+.truck-teaser__group-title-and-price {
+  @include clearfix; 
+}
+
+.truck-teaser__product-title {
+  h2 {
+    @include font-size-only($font-medium);
+    font-weight: $font-weight-regular;
+    margin: 0;
+    @include breakpoint($med-plus, true) {
+      @include font-size-only($font-medium-large);
+    }
+  }
+  @include breakpoint($med-plus, true) {
+    float: left;
+  }
+}
+
+.truck-teaser__product-price {
+  @include font-size-only($font-medium);
+  font-weight: $font-weight-bold;
+  color: $color3;
+  @include breakpoint($med-plus, true) {
+    text-align: right;
+    // Match font size + line height of h2 title
+    @include font-size($font-medium-large);
+    @include line-height($line-height-5);
+  }
+}
+
+.truck-teaser__product-description {
+  text-transform: uppercase;
+  display: none;
+  @include breakpoint($med, true) {
+    display: block; 
+  }
+}
+
+.truck-teaser__group-details .link-node {
+  display: block;
+}
+

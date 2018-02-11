@@ -1,0 +1,100 @@
+
+////////////////////////////////////////////////////////////////////
+// Contact, Compact, and Webform Forms
+////////////////////////////////////////////////////////////////////
+
+.compact-form {
+  background: $color8;
+  border: 1px solid $color8;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  @include breakpoint($med, true) {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+  }
+  /**
+   * Responsivize Form Input Fields
+   */
+  .form-text,
+  .form-textarea,
+  .form-email,
+  .form-select {
+    width: 100%;
+    border: solid 1px $gray1;
+  }
+  /* Override required so some form elements do not extend 100% of form width */
+  input.button,
+  input[type=date] {
+    width: auto;
+  }
+  /**
+   * Labels & Titles: use same font styles + resonsive resize
+   * as the base/_grouping.scss for <p> and <li>
+   */
+  .form-item label,
+  .field--type-datetime h4,
+  .field--type-string label,
+  .field--type-list-string label {
+    font-weight: normal;
+    @include font-size($font-base);
+    @include breakpoint($med-plus, true) {
+      @include font-size($font-standard);
+    }
+  }
+  /* Core "Name" Field: Push form input onto own line after the label */
+  .form-item-name label {
+    display: block;
+  }
+  .field--type-datetime {
+    /* h4 have too much top/bottom margin */
+    h4 {
+      margin-bottom: .1rem;
+    }
+  }
+}
+
+.form-item,
+.form-actions {
+  margin-bottom: 1rem;
+  div:last-child {
+    margin-bottom: 0;
+  }
+  .label {
+    color: $gray0;
+    font-weight: normal;
+  }
+}
+
+.form-text,
+.form-email {
+/*  border: solid 1px $gray3; */
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.form-textarea {
+/*  border: solid 1px $gray3; */
+}
+
+/**
+ * Form Field: Select List
+ */
+
+.form-select {
+  height: 2.5rem;
+  font-size: 1.25rem;
+  color: $color3; 
+}
+
+.form-submit {
+  color: $color2;
+  font-weight: normal;
+  @include font-size($font-medium);
+  background: $color-link;
+  border: solid 2px $color3;
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  &:hover {
+    background: lighten($color-link, 15%);
+    border: solid 2px lighten($color-link, 15%);
+  }
+}
+

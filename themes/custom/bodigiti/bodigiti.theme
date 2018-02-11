@@ -1,0 +1,199 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the bodigiti theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function bodigiti_preprocess_html(array &$variables) {
+  /* Add class to html tag */
+  //$variables['html_attributes']->addClass('no-js');
+
+  // Don't display the site name twice on the front page (and potentially others)
+  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
+    $variables['head_title'] = $variables['head_title_array']['name'];
+  }*/
+
+  /**
+   * 1) Shop Section: Add "section-shop" css class to <body> for matching paths
+   * 2) Add css class to <body> to be the same as each URL
+   *
+   * http://drupal.stackexchange.com/questions/223953/add-class-to-body-based-on-path-alias
+   *
+   */
+  // get current path (un-aliased)
+  $current_path = \Drupal::service('path.current')->getPath();
+  // get current path alias
+  $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  // remove the first "/" from the path
+  $path_alias = ltrim($path_alias, '/');
+  // Add "path-" to beginning of $path_alias so CSS selector starts with "path-"
+  $selector_as_path = 'path-' . $path_alias;
+  // Add path alias as CSS class to <body> with all "/" converted to dashes
+  $variables['attributes']['class'][] = \Drupal\Component\Utility\Html::cleanCssIdentifier($selector_as_path);
+  // Get first 4 characters of path alias that (already excludes the first "/" removed above)
+  $path_alias = substr($path_alias, 0, 4);
+  // Check if path alias is "shop"
+  if ($path_alias == 'shop') {
+    // If path alias is 'shop' then add template variable
+    $variables['shop_section'] = TRUE;
+  }
+
+  /**
+   * Make node ID available as a variable to add node id path as class to the <body> tag
+   * https://www.drupal.org/node/2634364#comment-10869458
+   */
+  $path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $path);
+  if (isset($path_args[1]) && isset($path_args[2]) && ($path_args[1] == 'node') && (is_numeric($path_args[2]))) {
+    $variables['attributes']['class'][] = 'page-node-' . $path_args[2];
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function bodigiti_page_attachments_alter(array &$page) {
+
+  // Get the current path
+  //$path = $current_path = \Drupal::service('path.current')->getPath();
+  // If we're on the contact page's node, add the 'contact-form' library.
+  // if ($path == '/node/41') {
+  //  $page['#attached']['library'][] = 'bodigiti/contact-form';
+  //}
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  /*$ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=edge',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function bodigiti_preprocess_page(array &$variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function bodigiti_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function bodigiti_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  /*$node = $variables['elements']['#node'];
+
+  if ($variables['elements']['#view_mode'] == "full") {
+
+  }*/
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ */
+function bodigiti_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function bodigiti_preprocess_block(array &$variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function bodigiti_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  $suggestions[] = 'field__' . $element['#view_mode'];
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function bodigiti_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
+    $suggestions[] = 'fieldset__form_composite';
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function bodigiti_preprocess_node(array &$variables) {
+  // Default to turning off byline/submitted.
+  //$variables['display_submitted'] = FALSE;
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function bodigiti_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_form().
+ */
+function bodigiti_preprocess_form(array &$variables) {
+  //$variables['attributes']['novalidate'] = 'novalidate';
+}
+
+/**
+ * Implements hook_preprocess_select().
+ */
+function bodigiti_preprocess_select(array &$variables) {
+  //$variables['attributes']['class'][] = 'select-chosen';
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function bodigiti_preprocess_field(array &$variables, $hook) {
+  /*switch ($variables['element']['#field_name']) {
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function bodigiti_preprocess_details(array &$variables) {
+  /*$variables['attributes']['class'][] = 'details';
+  $variables['summary_attributes']['class'] = 'summary';*/
+}
+
+/**
+ * Implements hook_theme_suggestions_details_alter().
+ */
+function bodigiti_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function bodigiti_preprocess_menu_local_task(array &$variables) {
+  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}

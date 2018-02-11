@@ -1,0 +1,135 @@
+
+/////////////////////////////
+// Contain Outer
+/////////////////////////////
+
+.contain-outer {
+  @include row;
+  &.background {
+    .inner { 
+      padding: 1rem 2rem;
+      @include breakpoint($sm-plus, true) {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+
+.contain-outer-small {
+  @include row-small;
+  &.background {
+    .inner { 
+      padding: 1rem 2rem;
+      @include breakpoint($sm-plus, true) {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+
+.contain-outer-large {
+  @include row-large;
+  &.background {
+    .inner { 
+      padding: 1rem 2rem;
+      @include breakpoint($sm-plus, true) {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+
+/////////////////////////////
+// Contain Inner
+/////////////////////////////
+
+.contain-inner {
+  .inner {
+    @include row;
+  }
+  &.background {
+    padding: 1rem 2rem;
+    @include breakpoint($sm-plus, true) {
+      padding: 1rem 3rem;
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+
+.contain-inner-small {
+  .inner {
+    @include row-small;
+  }
+  &.background {
+    padding: 1rem 2rem;
+    @include breakpoint($sm-plus, true) {
+      padding: 1rem 3rem;
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+
+.contain-inner-large {
+  .inner {
+    @include row-large;
+  }
+  &.background {
+    padding: 1rem 2rem;
+    @include breakpoint($sm-plus, true) {
+      padding: 1rem 3rem;
+    }
+  }
+  &.inner__padding-top-bottom-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.inner__padding-none {
+    .inner {
+      padding: 0;
+    }
+  }
+}
+

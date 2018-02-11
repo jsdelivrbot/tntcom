@@ -1,0 +1,47 @@
+
+/**
+ * Internet Explorer 10 & 11
+ * Target using Media Query that is only interpreted by IE
+ * https://philipnewcomer.net/2014/04/target-internet-explorer-10-11-css/
+ */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+
+  /* Snipcarts: except below #snipcart-sitewide block */
+  .snipcart-cart-and-count {
+    .snipcart-cart {
+      background-position: -10px center;
+      background-size: 84px auto;
+    }
+  }
+  /* Snipcart: Only sitewide sipcart block */
+  #snipcart-sitewide {
+    /* Snipcart Account/Login */
+    .snipcart-account-login {
+      .snipcart-user-email {
+        padding-top: 6px;
+      }
+    }
+    .snipcart-cart-and-count {
+      .snipcart-cart {
+        background-position: 10px center;
+        background-size: 70px auto;
+      }
+      .snipcart-summary {
+        padding-top: 6px;
+      }
+    }
+  }
+
+  /** 
+   * Image Modules used in Block type Sidebar, for the sidebar, would not contain 
+   * the image size, so images appeared as their full width & height
+   */
+  .sidebar {
+    img {
+      width: 100%;
+    }
+  }
+}
+

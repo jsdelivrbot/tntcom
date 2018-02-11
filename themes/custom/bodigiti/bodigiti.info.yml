@@ -1,0 +1,76 @@
+name: Bodigiti
+type: theme
+description: Custom theme by Bodigiti.
+package: Bodigiti
+core: 8.x
+base theme: stable
+
+# Screenshot of theme requires key if file is not named screenshot.png and/or not located in theme's root directory
+# screenshot: screenshot_filename.png
+# Or if saved in images directory of theme
+# screenshot: images/screenshot_filename.png
+
+regions:
+  top: Top of page
+  header: Header
+  navigation: Navigation
+  navigation_two: Navigation Two
+  featured_top: Featured Top
+  content: Content
+  content_bottom: Content Bottom
+  sidebar_first: Sidebar First
+  sidebar_second: Sidebar Second
+  featured_bottom: Featured Bottom
+  footer_pre: Footer Pre
+  footer: Footer
+  footer_post: Footer Post
+  page_top: Page top
+  page_bottom: Page bottom
+  hidden: 'Hidden for referenced blocks + tokens (twig)'
+
+libraries:
+  # globally adds styles and scripts from bodigiti.libraries.yml
+  - bodigiti/global-styling
+
+stylesheets-remove:
+  # Classy uses Stable as base theme and inherits Stable CSS files
+  # Remove one or more stylesheets from Stable base theme
+  # Stable has no libraries.yml file so stylesheets need to be identified individually by path
+  - core/themes/stable/css/system/components/ajax-progress.module.css
+  - core/themes/stable/css/system/components/align.module.css
+  - core/themes/stable/css/system/components/autocomplete-loading.module.css
+  - core/themes/stable/css/system/components/fieldgroup.module.css
+  - core/themes/stable/css/system/components/container-inline.module.css
+  - core/themes/stable/css/system/components/clearfix.module.css
+  - core/themes/stable/css/system/components/details.module.css
+    # Hides at least the "Skip Link" markup
+    #  - core/themes/stable/css/system/components/hidden.module.css
+  - core/themes/stable/css/system/components/item-list.module.css
+  - core/themes/stable/css/system/components/js.module.css
+  - core/themes/stable/css/system/components/nowrap.module.css
+  - core/themes/stable/css/system/components/position-container.module.css
+  - core/themes/stable/css/system/components/progress.module.css
+  - core/themes/stable/css/system/components/reset-appearance.module.css
+  - core/themes/stable/css/system/components/resize.module.css
+  - core/themes/stable/css/system/components/sticky-header.module.css
+  - core/themes/stable/css/system/components/tabledrag.module.css
+  - core/themes/stable/css/system/components/tablesort.module.css
+  - core/themes/stable/css/system/components/tree-child.module.css
+  - core/themes/stable/css/views/views.module.css
+
+libraries-override:
+  # Remove all Classy theme CSS files at once
+  # Classy has a libraries.yml file so can override full sections with one setting
+  classy/base: false 
+
+conditional-stylesheets:
+  # Does NOT work for IE 10+
+  # https://msdn.microsoft.com/en-us/library/ms537512.aspx
+  # Can only add 1 stylesheet per expression/condition, e.g. lte IE8:
+  lte IE 8:
+    all:
+      style/css/no-query-plus-ie8.css
+  IE 9:
+    all:
+      style/css/ie9-styles.css
+

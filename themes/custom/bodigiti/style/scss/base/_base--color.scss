@@ -1,0 +1,56 @@
+
+//////////////////////////////////////////////////////////////////
+// Background colors
+//////////////////////////////////////////////////////////////////
+
+.background,
+.background-color {
+  &.dark,
+  &.black {
+    background: $color1;
+  }
+  &.white {
+    background-color: $color2;
+  }
+  &.blue {
+    background-color: $color3;
+  }
+  &.red {
+    background-color: $color4;
+  }
+  &.green {
+    background-color: $color7a;
+  }
+  &.gray {
+    background-color: $gray6;
+  }
+  &.gray-dark {
+    background-color: $color6;
+  }
+  &.gray-dark-2 {
+    background-color: $color7;
+  }
+  /* apply text color if parent div has background color */
+  h1,h2,h3,h4,h5,h6,p,div,ol,ul,li {
+    color: $color2;
+  }
+}
+
+/**
+ * Text Color overrides
+ */
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, a {
+  &.text-white,
+  .text-white {
+    color: $color2;
+  }
+  &.text-blue,
+  .text-blue {
+    color: $color3;
+  }
+  &.text-red,
+  .text-red {
+    color: $color4;
+  }
+}
+

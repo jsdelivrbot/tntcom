@@ -1,0 +1,15 @@
+
+////////////////////////////////////////////////////
+// Navigation
+////////////////////////////////////////////////////
+
+#navigation-two {
+  background: $color2;
+  @include breakpoint($med, true) {
+    background: $color5;
+    .layout-container {
+      @include row;
+    }
+  }
+}
+

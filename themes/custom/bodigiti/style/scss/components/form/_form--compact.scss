@@ -1,0 +1,32 @@
+
+////////////////////////////////////////////////////////////////////
+// Compact Form
+////////////////////////////////////////////////////////////////////
+
+.compact-form-label {
+  font-weight: normal;
+  @include font-size($font-standard);
+  color: $gray0;
+  padding-top: 0.275rem;
+}
+
+.compact-form-wrapper {
+  border: 1px solid #ccc;
+}
+
+.form-text,
+.form-textarea {
+  @include font-size($font-standard);
+}
+
+/* IE10 has craps out on the input field for email so formatting is jacked up.  this accommodates it to the best possible */
+/* IE9 has corresponding compensating styles in _ie9.scss */
+.form-email {
+  font-size: 1.25rem;
+  line-height: 1.7rem;
+}
+
+.form-textarea {
+  max-height: 225px;
+}
+

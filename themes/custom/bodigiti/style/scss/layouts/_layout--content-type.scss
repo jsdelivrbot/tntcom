@@ -1,0 +1,99 @@
+
+////////////////////////////////////////////////////////////////////////////////
+// Node Types: PAGE, ARTICLE, TRUCK + PATH TRUCKS b/c VIEWS PAGE
+// *path-specific styles not shared with node types are in separate files
+////////////////////////////////////////////////////////////////////////////////
+
+/*******************************************************************************
+ * Group styling into two sections:
+ * 1) #main-wrapper + #main
+ * 2) #content + #sidebar + #featured-bottom 
+ *
+ * Reason for splitting in two groups is some content-types and paths share 
+ * all of the styles from Group 1 but do not share styles from Group 2.
+ * Example: .page-nod-type-truck uses same styles as #main-wrapper and #main, 
+ * but does not use the styles of #content and #sidebar-first
+ ******************************************************************************/
+
+/*******************************************************************************
+ * 1) #main-wrapper + #main
+ ******************************************************************************/
+
+.page-node-type-page,
+.page-node-type-article,
+.page-node-type-truck,
+.path-trucks /* created by view 'trucks' */ {
+  #main-wrapper {
+    @include row;
+    @include clearfix;
+  }
+  /**
+  * Main
+  */
+  #main {
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-right: 16px;
+    padding-right: 1rem;
+    padding-left: 16px;
+    padding-left: 1rem;
+    @include breakpoint($med, true) {
+      padding-top: 48px;
+      padding-top: 3rem;
+    }
+    @include breakpoint($l-plus, true) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+/*******************************************************************************
+ * 2) #content + #sidebar + #featured-bottom 
+ ******************************************************************************/
+
+.page-node-type-page,
+.page-node-type-article,
+/* path-trucks created by view 'trucks' */
+.path-trucks {
+  /**
+  * Content
+  */
+  #content {
+    @include breakpoint($med-plus, true) {
+      @include span(8 at 1 of 12);
+      padding: 0;
+    }
+  }
+  /**
+  * Sidebar First
+  */
+  #sidebar-first {
+    margin: 0;
+    padding-top: 3rem;
+    @include breakpoint($med-plus, true) {
+      @include span(3 at 10 of 12);
+      padding-top: 0;
+    }
+    @include breakpoint($sidebar-first, true) {
+      margin: 0;
+    }
+    .section {
+      max-width: 25rem;
+      @include breakpoint($sidebar-first, true) {
+        margin: 0 auto;
+      }
+      @include breakpoint($l, true) {
+        margin: 0;
+        float: right;
+      }
+    }
+  }
+  /**
+  * Featured Bottom
+  */
+  #featured-bottom {
+    @include clearfix();
+  }
+}
+

@@ -1,0 +1,157 @@
+
+/**
+ * Original, unaltered CSS code from...
+ *
+ * 2 Columns http://codepen.io/bradfrost/pen/tnhGv
+ * 3 Columns http://codepen.io/bradfrost/pen/orKvD
+ * 4 Columns http://codepen.io/bradfrost/pen/pwmHf 
+ * 5 Columns http://codepen.io/bradfrost/pen/rjfta
+ * 6 Columns http://codepen.io/benbrignell/pen/gpOYPK 
+ */
+
+/////////////////////////////////////////////////
+// 2 Columns
+/////////////////////////////////////////////////
+
+/* Use for anything except when both columns contain only lists (ul ol) */
+.col-group--2 {
+  @include breakpoint($med, true) {
+    overflow: hidden;
+  }
+  > div,
+  > .paragraph {
+    margin-bottom: 1rem;
+    @include breakpoint($med, true) {
+      padding: 0 1rem;
+      float: left;
+      width: 50%;
+    }
+  }
+  div:first-of-type,
+  .paragraph:nth-child(odd) {
+    padding-left: 0;
+  }
+  div:last-of-type,
+  .paragraph:nth-child(even) {
+    padding-right: 0;
+  }
+}
+
+/* Use only when both columns contain only lists (ul ol) */
+.list-group--2 {
+  @include breakpoint($med, true) {
+    overflow: hidden;
+  }
+  > div {
+    margin-bottom: 1rem;
+    @include breakpoint($med, true) {
+      padding: 0 1rem;
+      float: left;
+      width: 50%;
+    }
+  }
+  div:first-of-type {
+    padding-left: 0;
+    margin-bottom: -1rem;
+    @include breakpoint($med, true) {
+      margin-bottom: 1rem;
+    }
+  }
+  div:last-of-type {
+    padding-right: 0;
+  }
+}
+
+
+/////////////////////////////////////////////////
+// 3 Columns
+/////////////////////////////////////////////////
+
+.col-group--3 {
+  .align-center {
+    text-align: center;
+  }
+  @include breakpoint($med, true) {
+    overflow: hidden;
+  }
+  > div {
+    margin-bottom: 3rem;
+    @include breakpoint($med, true) {
+      float: left;
+      width: 30%;
+      margin-bottom: 1rem;
+    }
+  }
+  div:nth-child(2) {
+    @include breakpoint($med, true) {
+      margin: 0 4.9%;
+    }
+  }
+}
+
+
+/////////////////////////////////////////////////
+// 4 Columns
+/////////////////////////////////////////////////
+
+/* For narrow areas such as standard-width main-content */
+@mixin col-50-percent {
+  width: 50%;
+  padding: 0 1rem;
+  float: left;
+  &:nth-child(odd) {
+    clear: left;
+    padding-left: 0;
+  }
+  &:nth-child(even) {
+    padding-right: 0;
+  }
+}
+
+/* For wide areas that span the width of the page (1200px) */
+@mixin col-25-percent {
+  width: 25%;
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4) {
+    clear: none;
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+  &:nth-child(4) {
+    clear: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.col-group--4 {
+  @include breakpoint($med, true) {
+    overflow: hidden;
+  }
+  /* For narrow areas such as standard-width main-content */
+  > .col,
+  > .paragraph {
+    @include breakpoint($med, true) {
+      // Choose Mixin
+      @include col-50-percent;
+    }
+    @include breakpoint($l, true) {
+      // Choose Mixin
+      @include col-25-percent;
+    }
+  }
+  /* For wide areas that span the width of the page (1200px) */
+  > .col.wide {
+    @include breakpoint($sm, true) {
+      // Choose Mixin
+      @include col-50-percent;
+    }
+    @include breakpoint($med, true) {
+      // Choose Mixin
+      @include col-25-percent;
+    }
+  }
+}
+

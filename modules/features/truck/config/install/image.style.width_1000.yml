@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: width_1000
+label: 'Width = 1000'
+effects:
+  c182e5ca-89e5-4aaf-ac50-abaac88fa382:
+    uuid: c182e5ca-89e5-4aaf-ac50-abaac88fa382
+    id: image_scale
+    weight: 1
+    data:
+      width: 1000
+      height: null
+      upscale: true

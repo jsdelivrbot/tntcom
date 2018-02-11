@@ -1,0 +1,64 @@
+
+$color1: #000; // Black
+$color2: #fff; // White
+$color3: #333399; // Primary (TNT Blue)
+$color4: #cc0033; // Secondary (TNT Red)
+$color5: #e6e6e6; // TNT Gray Medium
+$color6: #26282a; // TNT Gray Dark
+$color7: #4d4d4d; // TNT Gray Dark #2
+$color8: #d6d6d6; // TNT Gray
+$color9: #ff9933; // RRT Orange
+$color6b: #FBBE4F; // Orange Variant
+$color7a: green; // Green
+$color10: #0000FF; // Blue
+$color11: #7F00FF; // Purple
+$color12: #FF00FF; // Magenta
+$color13: pink; // Pink!
+$color14: #FFFF00; // Yellow
+$color15: #6A7071; // Gray
+$color16: #7d7cf9; // Light Purple
+$black: black;
+$white: white;
+$tomato: tomato;
+$gray0: gray;
+$gray1: #BBBBBB;
+$gray2: #f6f6f6; // Super-light gray
+$gray3: #f1f1f1;
+$gray4: #EEEEEE;
+$gray5: #262626; // Gray Superdark
+$gray6: #999999; // RRT Gray for Featured Content
+$gray7: #666666;
+$gray8: #333333; // Gray Superdark
+$gray9: #dddddd; // TNT Staff Images 
+$brown-dark: #333230;
+$brown-light: #A7A398;
+$brown-pale: lighten($brown-light, 20%);
+
+/* Superfish Colors for Menu Levels, etc */
+$superfish-1-color: $color2;
+$superfish-1-background-color-level-first: $color3;
+$superfish-1-background-color-level-second: lighten($color3, 15%);
+$superfish-1-background-color-level-third: $color3;
+$superfish-1-background-color-level-fourth: lighten($color3, 15%);
+/* End Superfish */
+
+$color-link: $color3; // green #80bf61; orange #ffb339
+$color-link-1: lighten($color-link, 2.5%);
+$color-link-2: lighten($color-link, 5%);
+$color-link-3: lighten($color-link, 15%);
+$color-link-4: lighten($color-link, 20%);
+$color-link-5: lighten($color-link, 25%);
+$color-link-6: lighten($color-link, 45%);
+
+$color-link-alt: $tomato;
+$color-link-alt-1: lighten($color-link-alt, 2.5%);
+$color-link-alt-2: lighten($color-link-alt, 5%);
+$color-link-alt-3: lighten($color-link-alt, 15%);
+$color-link-alt-4: lighten($color-link-alt, 20%);
+
+$color-button-border: $color-link;
+$color-button-border-alt: $color3;
+
+$color-cta-button: $color11;
+$color-cta-button-1: lighten($color11, 10%);
+

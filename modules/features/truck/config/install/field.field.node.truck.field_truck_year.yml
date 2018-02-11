@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_truck_year
+    - node.type.truck
+    - taxonomy.vocabulary.truck_year
+id: node.truck.field_truck_year
+field_name: field_truck_year
+entity_type: node
+bundle: truck
+label: 'Truck Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      truck_year: truck_year
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

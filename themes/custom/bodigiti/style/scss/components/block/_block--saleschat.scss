@@ -1,0 +1,17 @@
+
+/**
+ * SalesChat
+ */
+
+#livechat-eye-catcher {
+  display: none;
+}
+
+#livechat-compact-container,
+#livechat-full {
+  display: none;
+  @include breakpoint($med-plus, true) {
+    display: block;
+  }
+}
+

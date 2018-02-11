@@ -1,0 +1,209 @@
+
+/**
+ * Original, unaltered CSS code from...
+ *
+ * 2 Columns http://codepen.io/bradfrost/pen/tnhGv
+ * 3 Columns http://codepen.io/bradfrost/pen/orKvD
+ * 4 Columns http://codepen.io/bradfrost/pen/pwmHf 
+ * 5 Columns http://codepen.io/bradfrost/pen/rjfta
+ * 6 Columns http://codepen.io/benbrignell/pen/gpOYPK
+ */
+
+/////////////////////////////////////////////////
+// 2 Columns
+/////////////////////////////////////////////////
+
+/* Use for anything except when both columns contain only lists (ul ol) */
+.col-group--2--wide {
+  @include clearfix;
+  .container {
+    margin: 0 auto;
+    img {
+      // needed to override default img as inline which adds vertical space below image
+      // http://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image
+      display: block;
+      // center align default
+      margin: 0 auto;
+    }
+    &.left-32--right-68 {
+      .col-1 {
+        @include breakpoint($sm, true) {
+          @include span(49 at 1 of 100);
+        }
+        @include breakpoint($sm-plus, true) {
+          @include span(31 at 1 of 100);
+          img {
+            float: left;
+          }
+        }
+      }
+      .col-2 {
+        padding: 2rem;
+        @include breakpoint($sm, true) {
+          @include span(49 at 51 of 100);
+          img {
+            float: right;
+          }
+        }
+        @include breakpoint($sm-plus, true) {
+          @include span(68 at 33 of 100);
+          img {
+            float: right;
+          }
+        }
+        @include breakpoint($l) {
+          padding: 2rem;
+        }
+      }
+    }
+    &.left-68--right-32 {
+      .col-1 {
+        padding: 2rem;
+        @include breakpoint($sm, true) {
+          @include span(49 at 1 of 100);
+          img {
+            float: left;
+          }
+        }
+        @include breakpoint($sm-plus, true) {
+          @include span(68 at 1 of 100);
+          img {
+            float: left;
+          }
+        }
+        @include breakpoint($l) {
+          padding: 2rem;
+        }
+      }
+      .col-2 {
+        @include breakpoint($sm, true) {
+          @include span(49 at 51 of 100);
+          img {
+            float: right;
+          }
+        }
+        @include breakpoint($sm-plus, true) {
+          @include span(31 at 70 of 100);
+          img {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.col-group--2--wide {
+  h1 {
+    @include font-size-only($font-large3);
+    @include line-height($line-height-6a);
+    font-weight: $font-weight-regular;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// 2-Colmuns (example usage: Why A-Jax)
+///////////////////////////////////////////////////////////////////////////////
+
+.col-group--2--32--68--small {
+  @include clearfix;
+  margin-top: 64px;
+  margin-top: 4rem;
+  .container {
+    @include clearfix;
+    margin: 0 auto;
+    @include breakpoint($med) {
+      max-width: 44rem;
+    }
+    @include breakpoint($l, true) {
+      max-width: 608px;
+      max-width: 38rem;
+    }
+    /* subtract 1 col span to keep video thumnail from erroring */
+    .col-1 {
+      padding: 2rem;
+      @include breakpoint($med, true) {
+        @include span(68 at 1 of 100);
+      }
+      @include breakpoint($l, true) {
+        padding: 2rem 2rem 0 0;
+      }
+    }
+    .col-2 {
+      @include breakpoint($med, true) {
+        @include span(31 at 70 of 100);
+      }
+    }
+    .callout {
+    }
+    h1 {
+      font-weight: $font-weight-regular;
+    }
+    p {
+      font-size: 1.15rem;
+      line-height: 1.5rem;
+      margin: 0;
+    }
+    img {
+      /* needed to override default img as inline which adds vertical space below image */
+      /* http://stackoverflow.com/questions/5804256/image-inside-div-has-extra-space-below-the-image */
+      display: block;
+      /* center align default */
+      margin: 0 auto;
+    }
+    a.cta-button.small.contained {
+      margin: .75rem 0 0 0;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Colums X3 (example usage: ajax front page core capabilities)
+////////////////////////////////////////////////////////////////////////////////
+ 
+.col-group--3 {
+  margin-top: 64px;
+  margin-top: 4rem;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+  @include breakpoint($med, true) {
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+  .wrapper {
+    @include clearfix;
+    max-width: 880px;
+    max-width: 55rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container {
+    text-align: center;
+  }
+  .column {
+    text-align: center;
+    max-width: 18rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3rem;
+    &.col3 {
+      margin-bottom: 0;
+    }
+    img {
+      height: 6rem;
+      margin-bottom: 1.5rem;
+    }
+    @include breakpoint($med, true) {
+      margin-bottom: 0;
+      max-width: 100%;
+      width: 30%;
+      display: inline-block;
+    }
+  }
+  .cta-button.small {
+  }
+  h3 {
+    margin-top: 0;
+  }
+}
+

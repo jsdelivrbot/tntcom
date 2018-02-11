@@ -1,0 +1,37 @@
+
+/**
+ * Internet Explorer 8 or less
+ */
+
+img, media {
+  width: auto;
+  height: auto;
+}
+
+
+/**
+ * Background Images
+ *
+ * Responsive Background Images 
+ * http://www.smashingmagazine.com/2013/07/22/simple-responsive-images-with-css-background-images/ 
+ */
+/*
+#showroom-background {
+  background-image: url('../../../../default/files/images/block/image-name.jpg');
+}
+*/
+
+.col-group--2--32--68 {
+  .container {
+    .col-1 {
+      width: 70%;
+      float: none;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .col-2 {
+      /* hide wistia video because it won't render */
+      display: none;
+    }
+  }
+}
