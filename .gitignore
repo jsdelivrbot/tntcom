@@ -1,5 +1,3 @@
-# Robots.txt 
-robots.txt
 
 # Ignore paths that contain user-generated content.
 sites/*/files
