@@ -36,11 +36,6 @@ function bodigiti_preprocess_html(array &$variables) {
   $variables['attributes']['class'][] = \Drupal\Component\Utility\Html::cleanCssIdentifier($selector_as_path);
   // Get first 4 characters of path alias that (already excludes the first "/" removed above)
   $path_alias = substr($path_alias, 0, 4);
-  // Check if path alias is "shop"
-  if ($path_alias == 'shop') {
-    // If path alias is 'shop' then add template variable
-    $variables['shop_section'] = TRUE;
-  }
 
   /**
    * Make node ID available as a variable to add node id path as class to the <body> tag
@@ -51,6 +46,16 @@ function bodigiti_preprocess_html(array &$variables) {
   if (isset($path_args[1]) && isset($path_args[2]) && ($path_args[1] == 'node') && (is_numeric($path_args[2]))) {
     $variables['attributes']['class'][] = 'page-node-' . $path_args[2];
   }
+
+	/**
+   * Region Add to html.html.twig
+   * moves region before_body into before_body var inside basic html
+	 * https://drupal.stackexchange.com/a/221166
+   */
+  if (isset($variables['page']['body_bottom'])) {
+    $variables['body_bottom'] = $variables['page']['body_bottom'];
+	}
+
 }
 
 /**

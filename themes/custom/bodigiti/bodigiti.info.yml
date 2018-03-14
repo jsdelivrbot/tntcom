@@ -26,7 +26,8 @@ regions:
   footer_post: Footer Post
   page_top: Page top
   page_bottom: Page bottom
-  hidden: 'Hidden for referenced blocks + tokens (twig)'
+  body_bottom: Body Bottom pre-closing body tag
+  hidden: Hidden for referenced blocks + tokens (twig)
 
 libraries:
   # globally adds styles and scripts from bodigiti.libraries.yml

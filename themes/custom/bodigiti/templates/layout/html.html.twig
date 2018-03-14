@@ -57,5 +57,9 @@
     {{ page_bottom }}
     {# Drupal JS Output here #}
       <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+		{# Body Bottom Region added via bodigiti.theme #}
+		{% if body_bottom %}
+    	{{ body_bottom }}
+  	{% endif %}
   </body>
 </html>
