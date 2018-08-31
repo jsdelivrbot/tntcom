@@ -1,5 +1,5 @@
 
-
+/*
 .rwd-table {
   margin: 1rem 0;
   width: 100%;
@@ -24,5 +24,102 @@
       width: 33%
     }
   }
+}
+*/
+
+$breakpoint-alpha: $sm; // adjust to your needs
+
+.rwd-table {
+  margin: 1rem 0;
+  min-width: 300px; // adjust to your needs
+	border-collapse: unset; // override normalize css 
+	 
+  tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th[scope="col"] {
+    display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+  }
+  
+  td, th[data-th] {
+    display: block; 
+    &:first-child {
+      padding-top: .5rem;
+    }
+    &:last-child {
+      padding-bottom: .5rem;
+    }
+    &:before {
+      content: attr(data-th)": "; // who knew you could do this? The internet, thats who.
+      font-weight: bold;
+
+      // optional stuff to make it look nicer
+      width: 6.5rem; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
+      
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
+    }
+  }
+  
+  th[scope="col"], td, th[data-th]  {
+    text-align: left;
+    
+    @media (min-width: $breakpoint-alpha) {
+      display: table-cell;
+      padding: .25rem .5rem;
+      
+      &:first-child {
+        padding-left: 0;
+      }
+      
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+
+// presentational styling
+.rwd-table {
+  background: $color8;
+  color: $color1;
+  overflow: hidden;
+	th[scope="col"], th[data-th], td[data-th] {
+		color: $color1;
+	}
+  tr {
+    border-color: lighten(#34495E, 10%);
+  }
+  th[scope="col"], td, th[data-th] {
+    margin: .5rem 1rem;
+    @media (min-width: $breakpoint-alpha) { 
+      padding: 1rem !important; 
+    }
+  }
+  th[scope="col"], th[data-th]:before, td:before {
+ 		color: $color-link;
+ }
+	caption {
+	  background: $color8;
+		color: $color1;
+		padding: .1rem 1rem;
+    h1,h2,h3,p {
+			color: $color1;
+		}
+		&.header {	
+			border-radius: .4rem .4rem 0 0;
+			border-bottom: 1px solid gray;
+		}
+		&.footer {	
+			border-radius: 0 0 .4rem .4rem;
+			border-top: 1px solid gray;
+		}
+	}
 }
 
