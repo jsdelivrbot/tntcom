@@ -33,7 +33,8 @@ $breakpoint-alpha: $sm; // adjust to your needs
   margin: 1rem 0;
   min-width: 300px; // adjust to your needs
 	border-collapse: unset; // override normalize css 
-	 
+  width: 100%;
+
   tr {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
