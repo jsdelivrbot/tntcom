@@ -1,12 +1,7 @@
 
-/*
 .rwd-table {
   margin: 1rem 0;
   width: 100%;
-  td {
-    display: block;
-    border: 1px solid gray;
-  }
   th, td {
     text-align: left;
     padding: .5rem 1rem !important;
@@ -14,32 +9,33 @@
       display: table-cell;
     }
   }
-  .even {
-    background-color: $gray3;
-    @include breakpoint($med, true) {
+  /* Grid-background used for 'truck' page content type */
+  &.grid-background {
+    td {
+      border: 1px solid gray;
     }
-  }
+    .even {
+      background-color: $gray3;
+      @include breakpoint($med, true) {
+      }
+    }
+    }
   &.three-max td {
     @include breakpoint($med, true) {
       width: 33%
     }
   }
 }
-*/
 
 $breakpoint-alpha: $sm; // adjust to your needs
 
 .rwd-table {
-  margin: 1rem 0;
-  min-width: 300px; // adjust to your needs
-	border-collapse: unset; // override normalize css 
-  width: 100%;
-
+/*
   tr {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
   }
-  
+*/ 
   th[scope="col"] {
     display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
   }
@@ -88,15 +84,11 @@ $breakpoint-alpha: $sm; // adjust to your needs
 
 // presentational styling
 .rwd-table {
-  background: $color8;
   color: $color1;
   overflow: hidden;
 	th[scope="col"], th[data-th], td[data-th] {
 		color: $color1;
 	}
-  tr {
-    border-color: lighten(#34495E, 10%);
-  }
   th[scope="col"], td, th[data-th] {
     margin: .5rem 1rem;
     @media (min-width: $breakpoint-alpha) { 
@@ -105,10 +97,10 @@ $breakpoint-alpha: $sm; // adjust to your needs
   }
   th[scope="col"], th[data-th]:before, td:before {
  		color: $color-link;
- }
+  }
 	caption {
-	  background: $color8;
-		color: $color1;
+	  background: $gray3;
+    color: $color1;
 		padding: .1rem 1rem;
     h1,h2,h3,p {
 			color: $color1;
