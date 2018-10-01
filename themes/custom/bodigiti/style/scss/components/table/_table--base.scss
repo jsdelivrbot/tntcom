@@ -1,31 +1,38 @@
 
-.rwd-table {
-  margin: 1rem 0;
-  width: 100%;
-  th, td {
-    text-align: left;
-    padding: .5rem 1rem !important;
-    @include breakpoint($med, true) {
-      display: table-cell;
-    }
-  }
-  /* Grid-background used for 'truck' page content type */
-  &.grid-background {
-    td {
-      border: 1px solid gray;
-    }
-    .even {
-      background-color: $gray3;
-      @include breakpoint($med, true) {
-      }
-    }
-    }
-  &.three-max td {
-    @include breakpoint($med, true) {
-      width: 33%
-    }
-  }
-}
+////////////////////////////////////////////////////////////////////////////////
+// Grid Table (alternating row colors - table used for truck-page details)
+////////////////////////////////////////////////////////////////////////////////
+
+.rwd-table__grid {                                                                        
+	margin: 1rem 0;                                                                   
+	width: 100%;                                                                      
+	td {                                                                              
+		display: block;                                                                 
+		border: 1px solid gray;                                                         
+	}                                                                                 
+	th, td {                                                                          
+		text-align: left;                                                               
+		padding: .5rem 1rem !important;                                                 
+		@include breakpoint($med, true) {                                               
+			display: table-cell;                                                          
+		}                                                                               
+	}                                                                                 
+	.even {                                                                           
+		background-color: $gray3;                                                       
+		@include breakpoint($med, true) {                                               
+		}                                                                               
+	}                                                                                 
+	&.three-max td {                                                                  
+		@include breakpoint($med, true) {                                               
+			width: 33%                                                                    
+		}                                                                               
+	}                                                                                 
+}                                  
+
+
+////////////////////////////////////////////////////////////////////////////////
+// No-Grid Table
+////////////////////////////////////////////////////////////////////////////////
 
 $breakpoint-alpha: $sm; // adjust to your needs
 
