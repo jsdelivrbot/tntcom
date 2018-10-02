@@ -28,11 +28,28 @@
         }
         // media query change listens for change in browser width
         function WidthChange(mq) {
+          // If mq.matches then btnValue = "Sort" else btnValue = "Find a Truck"
           var btnValue = (mq.matches ? "Sort" : "Find a Truck");
-          document.getElementById("edit-submit-trucks").value = btnValue;
+          $("#edit-submit-trucks").val(btnValue);
+          // If mq.matches...
+          if (mq.matches) {
+            // 
+            // Accessibility -- Screenreader Support: Following items added to assist
+            // screen readers to more effectively communicate the DOM
+            //
+            // Remove form elements from DOM so screenreaders do not read them twice
+            $("#trucks-filter__top .form-item-tid, #trucks-filter__top .form-item-tid-1, #trucks-filter__top .form-item-tid-2").remove();
+          }
         }
-
       }); // END jQuery function
+      // 
+      // Accessibility -- Screenreader Support: Following items added to assist
+      // screen readers to more effectively communicate the DOM
+      //
+      // Remove 'sort by' element from sidebar Truck Search b/c it's already at top
+      // of page and should not be duplicated
+      $("#trucks-filter__sidebar .form-item-sort-bef-combine").remove();
+
       /*************************************************************************
        * End Custom Code
        ************************************************************************/

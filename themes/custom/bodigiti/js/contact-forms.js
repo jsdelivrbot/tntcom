@@ -13,21 +13,21 @@
    *
    * @type {Drupal~behavior}
    */
-  Drupal.behaviors.accessibility = {
+  Drupal.behaviors.contactForms = {
     attach: function (context) {
 
       /*************************************************************************
        * Start Custom Code
-       * Filter Block Change Button Text Based on Breakpoint
        ************************************************************************/
 
+      // Accessibility -- Screenreader Support: Following items added to assist
+      // screen readers to more effectively communicate the DOM
       // Add asterisk to required fields that could not be edited in admin ui      
       $("label[for=edit-name]").text("Your name *");
       $("label[for=edit-mail]").text("Your email address *");
       $("label[for=edit-message-0-value]").text("Message *");
       // Remove default 'none' field
       $("option[value=_none]").remove();
-
 
       /*************************************************************************
        * End Custom Code

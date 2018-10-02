@@ -9,7 +9,7 @@ global-styling:
   js:
     js/modal.js: {}
     js/google-maps.js: {}
-    js/accessibility.js: {}
+    js/contact-forms.js: {}
       # Disabled because it broke ability of anchor links to show in browser url
     #    js/smooth-scroll.js: {}
 
