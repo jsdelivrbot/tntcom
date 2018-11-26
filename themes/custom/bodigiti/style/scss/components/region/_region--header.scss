@@ -8,7 +8,7 @@
     @include row;
     padding: 0 0 0px 0;
     padding: 0 0 0rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: .75rem;
     @include breakpoint($med, true) {
       padding: 24px 0 12px 0;
       padding: 0;
