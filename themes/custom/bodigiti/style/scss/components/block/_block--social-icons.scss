@@ -1,0 +1,9 @@
+
+#social-icons {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  @include breakpoint($med, true) {
+    margin-top: 1rem;
+  }
+}

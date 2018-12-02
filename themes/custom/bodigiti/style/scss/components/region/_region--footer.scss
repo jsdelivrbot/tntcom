@@ -4,12 +4,14 @@
 ////////////////////////////////////////////////////
 
 #footer {
-  display: none;
-  @include breakpoint($med, true) {
-    display: block; 
+  nav {
+    display: none;
+    @include breakpoint($med, true) {
+      display: block; 
+    }
   }
   @include background-and-text($color6, $color2);
-  * {
+  h2, li {
     text-align: center;
     @include breakpoint($sm, true) {
       text-align: left; 
